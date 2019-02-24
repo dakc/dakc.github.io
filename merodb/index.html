@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MeroDB</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="sidebaricon">
+        </div>
+
+        <div class="sidebar">
+            <div class="personal">
+                <img src="img/favicon.png" alt="avatar">
+                <span>Da KC</span>
+                <span>MeroDB</span>
+            </div>
+            <div class="menu">
+                <div>
+                    <header>Install</header>
+                    <nav>
+                        <ul>
+                            <li><i></i><a href="#">npm</a></li>
+                            <li><i></i><a href="#">browser</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div>
+                    <header>Create</header>
+                    <nav>
+                        <ul>
+                            <li><i></i><a href="#">collection</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div>
+                    <header>Uses</header>
+                    <nav>
+                        <ul>
+                            <li><i></i><a href="#">insert</a></li>
+                            <li><i></i><a href="#">select</a></li>
+                            <li><i></i><a href="#">update</a></li>
+                            <li><i></i><a href="#">delete</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        <div class="contentbox">
+            <div class="row">
+                <h2>About</h2>
+                MeroDB is a Javascript library that is released under MIT liscense. It helps to manipulate Javascript
+                objects
+                easily like a database.
+                Querying is very similar to NoSQL database. It has the common functions like
+                <ul>
+                    <li>create</li>
+                    <li>insert</li>
+                    <li>update</li>
+                    <li>delete</li>
+                    <li>select</li>
+                </ul>
+                In case of NodeJS, it has frunction to <em>WRITE</em> and <em>READ</em> data into and from a disk.
+            </div>
+
+            <div id="install_npm">
+                <div class="row">
+                    <h2>Installation for Node</h2>
+                    Install the library by using following command.
+                    <pre>
+npm install --save-dev merodb
+                        </pre>
+                    Create MeroDB Instance
+                    <pre>
+const MeroDB = require("merodb");
+var myDb = new MeroDB();
+                    </pre>
+                </div>
+            </div>
+
+
+            <div id="install_browser">
+                <div class="row">
+                    <h2>Installation for Browser</h2>
+                    Load “merodb.min.js” file which is on dist folder.
+                    <pre class="code">
+&lt;script src="./dist/merodb.min.js"&gt;&lt;/script&gt;
+                    </pre>
+
+                    Create MeroDB Instance
+                    <pre class="code">
+&lt;script&gt;
+    document.addEventListener('DOMContentLoaded', function () {
+        var myDb = new merodb();
+    });
+&lt;/script&gt;
+</pre>
+                        Look here for <a href="https://github.com/dakc/merodb/blob/master/example.html">SAMPLE</a>
+                </div>
+            </div>
+
+            <div id="create">
+                    <div class="row">
+                        <h2>Create collection</h2>
+                        <div class="code">
+                                create - &lt;collection name&gt;?, &lt;data&gt;
+                                @returns: boolean
+                                </div>
+                        MeroDB can hold multiple collection. As like a "Table" in RDBMS first create COLLECTION. 
+                        The first parameter is name of collection.It should be of string type.
+
+                    </div>
+                </div>
+        </div>
+
+    </div>
+
+    <script src="js/index.js"></script>
+</body>
+
+</html>
