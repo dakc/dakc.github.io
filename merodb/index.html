@@ -23,8 +23,8 @@
                     <header>Install</header>
                     <nav>
                         <ul>
-                            <li><i></i><a href="#">npm</a></li>
-                            <li><i></i><a href="#">browser</a></li>
+                            <li><i></i><a href="?#install_npm">npm</a></li>
+                            <li><i></i><a href="?#install_browser">browser</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -33,7 +33,7 @@
                     <header>Create</header>
                     <nav>
                         <ul>
-                            <li><i></i><a href="#">collection</a></li>
+                            <li><i></i><a href="?#create">collection</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -42,13 +42,21 @@
                     <header>Uses</header>
                     <nav>
                         <ul>
-                            <li><i></i><a href="#">insert</a></li>
-                            <li><i></i><a href="#">select</a></li>
-                            <li><i></i><a href="#">update</a></li>
-                            <li><i></i><a href="#">delete</a></li>
+                            <li><i></i><a href="?#insert">insert</a></li>
+                            <li><i></i><a href="?#select">select</a></li>
+                            <li><i></i><a href="?#update">update</a></li>
+                            <li><i></i><a href="?#delete">delete</a></li>
                         </ul>
                     </nav>
                 </div>
+            </div>
+
+            <div class="links">
+                    <ul>
+                        <li><img src="https://travis-ci.com/dakc/merodb.svg?branch=master"></li>
+                        <li><img src="https://img.shields.io/npm/v/merodb.svg"></li>
+                        <li><img src="https://img.shields.io/github/license/dakc/merodb.svg?style=popout"></li>
+                    </ul>
             </div>
         </div>
 
@@ -109,12 +117,358 @@ var myDb = new MeroDB();
                     <div class="row">
                         <h2>Create collection</h2>
                         <div class="code">
-                                create - &lt;collection name&gt;?, &lt;data&gt;
-                                @returns: boolean
-                                </div>
+                            create - &lt;collection name&gt;, &lt;is activate&gt;?
+                            @returns: boolean
+                        </div>
                         MeroDB can hold multiple collection. As like a "Table" in RDBMS first create COLLECTION. 
                         The first parameter is name of collection.It should be of string type.
+                        <table>
+                            <tr>
+                                <th>parameter</th>
+                                <th>type</th>
+                                <th>description</th>
+                            </tr>
+                            <tr>
+                                    <td>collection name</td>
+                                    <td>string</td>
+                                    <td>name of collection ot be created. Similar to "Table" in RDBMS.</td>
+                                </tr>
+                                <tr>
+                                    <td>is activate</td>
+                                    <td>boolean (optional)</td>
+                                    <td>will activate the collection if set to true</td>
+                                </tr>
+                        </table>
+The second parameter is optional and can be omitted.
+                        "createCollection" will return false if failed, Otherwise returns true.
+<pre>
+var isCreated = myDb.createCollection("continent");
+if(isCreated === false){
+    console.log("Failed to create collection");
+}
+</pre>
+                        
+                       It has a method called <em>getCollections</em> which will return the list of collections found in a database.
+<pre>
+var myCollections = myDb.getCollections();
+</pre>
+                    </div>
+            </div>
 
+
+            <div id="insert">
+                <div class="row">
+                    <h2>Insert Data</h2>
+                    <div class="code">
+                        insert - &lt;collection name&gt;?, &lt;data&gt;
+                        @returns: boolean
+                    </div>
+                    <table>
+                        <tr>
+                            <th>parameter</th>
+                            <th>type</th>
+                            <th>description</th>
+                        </tr>
+                        <tr>
+                            <td>collection name</td>
+                            <td>string(optional)</td>
+                            <td>it can be omitted for active collection</td>
+                        </tr>
+                        <tr>
+                            <td>data</td>
+                            <td>object</td>
+                            <td>it is the data to be inserted  which is called document</td>
+                        </tr>
+                    </table>
+                    <h3>Insert Single Document</h3>
+<pre>
+var data1 = {id:1,place:"Asia",color:"red"};
+var data2 = {id:3,place:"Europe",color:"green"};
+var collectionName = "continent";
+myDb.insert(collectionName,data1);
+myDb.insert(collectionName,data2);
+</pre>
+
+<div id="activate-collection">
+However, first parameter can be omitted if a collection is activated. To activate a collection "use" method is executed.
+<pre>
+myDb.use("continent");
+var data1 = {id:5,place:"Africa",color:"blue"};
+var data2 = {id:7,place:"America",color:"yellow"};
+myDb.insert(data1);
+myDb.insert(data2);
+</pre>
+"use" & "insert" methods will return false if failed, Otherwise returns true. if second parameter is passed as true while creating collection, it will automatically activate the given collection.
+<pre>
+myDb.createCollection("continent", true);
+myDb.insert({id:7,place:"Antartica",color:"pink"});
+</pre>
+</div>
+<h1>Insert Existing Object</h1>
+<div class="code">
+        loadFromJsonObject - &lt;collection name&gt;?, &lt;data&gt;
+        @returns: boolean
+    </div>
+It will create a collection named user and inserts data of myObj.
+<pre>
+var myObj = [
+                {
+                "userId": 1,
+                "id": 1,
+                "title": "delectus aut autem",
+                "completed": false
+                },
+                {
+                "userId": 1,
+                "id": 2,
+                "title": "quis ut nam facilis et officia qui",
+                "completed": false
+                },
+                {
+                "userId": 1,
+                "id": 3,
+                "title": "fugiat veniam minus",
+                "completed": false
+                },
+                {
+                "userId": 1,
+                "id": 4,
+                "title": "et porro tempora",
+                }
+            ];
+myDb.loadFromJsonObject("user", myObj);
+</pre>
+                </div>
+            </div>
+
+            <div id="select">
+                    <div class="row">
+                        <h2>Search Data</h2>
+                        <div class="code">
+                            find - &lt;collection name&gt;?, &lt;condition&gt;, &lt;column headers&gt;?
+                            @returns: boolean
+                        </div>
+                        <table>
+                            <tr>
+                                <th>parameter</th>
+                                <th>type</th>
+                                <th>description</th>
+                            </tr>
+                            <tr>
+                                <td>object (1 param)</td>
+                                <td>search condition</td>
+                                <td>returns all the document satisfiying this condition</td>
+                            </tr>
+                            <tr>
+                                <td>object, array(2 params)</td>
+                                <td>search condition, column list</td>
+                                <td>similar to case 1 but only the columns listed will be returned</td>
+                            </tr>
+                            <tr>
+                                    <td>string, object, array(3 params)</td>
+                                    <td>collection name, search condition, column list</td>
+                                    <td>name of collection can be explicitly applied</td>
+                                </tr>
+                        </table>
+
+<pre>
+var searchTableString = "user";
+var searchConditionObject = { place: "Asia" };
+var resultColumnArray = ["id"];
+
+var searchResult = myDb.find(searchTableString, searchConditionObject);
+var searchResult = myDb.find(searchTableString, searchConditionObject, resultColumnArray);
+var searchResult = myDb.find(searchConditionObject);
+var searchResult = myDb.find(searchConditionObject, resultColumnArray);
+</pre>
+<div id="search-condition">
+<h2><em>Search Condition</em></h2>
+<table>
+    <thead>
+        <tr>
+            <th>name</th>
+            <th>meaning</th>
+            <th>usage</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>$e</td>
+            <td>equals</td>
+            <td>{ id: { $e: 200 } }</td>
+        </tr>
+        <tr>
+            <td>$ne</td>
+            <td>not equal</td>
+            <td>{ id: { $ne: 200 } }</td>
+        </tr>
+        <tr>
+            <td>$lt</td>
+            <td>less then</td>
+            <td>{ id: { $lt: 200 } }</td>
+        </tr>
+        <tr>
+            <td>$lte</td>
+            <td>less then or equal</td>
+            <td>{ id: { $lte: 200 } }</td>
+        </tr>
+        <tr>
+            <td>$gt</td>
+            <td>greater then</td>
+            <td>{ id: { $gt: 200 } }</td>
+        </tr>
+        <tr>
+            <td>$gte</td>
+            <td>greater then or equal</td>
+            <td>{ id: { $gte: 200 } }</td>
+        </tr>
+        <tr>
+            <td>$bt</td>
+            <td>between</td>
+            <td>{ id: [2, 5] }</td>
+        </tr>
+        <tr>
+            <td>$cont</td>
+            <td>contains</td>
+            <td>{ name: { $cont: "a" } }</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+<h3>Uses-1</h3>
+<pre>
+var searchResult = myDb.find("user",{ id: { $gte: 4 } });
+</pre>
+
+
+<h3>Uses-2</h3>
+<pre>
+var searchResult = myDb.find("user", {
+        $or: [{ id: 1 }, { name: "kk" }],
+        salary: 15
+    });
+</pre>
+
+
+<h3>Uses-3</h3>
+<pre>
+var searchResult = myDb.find({
+        $or: [
+            { isbn: { $gte: 2000 } },
+            { writer: { $ne: "df" } }
+        ],
+        name: { $ne: "df" },
+        price:{$lt:5000}
+    });
+</pre>
+                    </div>
+            </div>
+
+            <div id="update">
+                    <div class="row">
+                        <h2>Update Data</h2>
+                        <div class="code">
+                            update - &lt;collection name&gt;?, &lt;condition&gt;, &lt;new value&gt;
+                            @returns: boolean
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>paramet</th>
+                                    <th>type</th>
+                                    <th>description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>collection name</td>
+                                    <td>string</td>
+                                    <td>it can be omitted for <a href="?#activate-collection">active collection</a></td>
+                                </tr>
+                                <tr>
+                                    <td>condition</td>
+                                    <td>object</td>
+                                    <td>documents fulfilling this condition will be updated with new value</td>
+                                </tr>
+                                <tr>
+                                    <td>new value</td>
+                                    <td>object</td>
+                                    <td>this value will be the new value</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h3><em>※ Note</em></h3>
+                        <p>if the <new value> does not contain "$set" key then all the the data of the document fulfilling given condition will be replaced with the <new value> object.</p>
+<pre>
+// create instance of MeroDB
+var myDb = new MeroDB();
+// create collection with name "user" and activate
+myDb.createCollection("user", true);
+// insert two documents in the active collection
+myDb.insert({ id: 1, name: "hbeauty", enroll: "2018-01-20", sex: "M", salary: 15 });
+myDb.insert({ id: 2, name: "dakc", enroll: "2017-02-28", sex: "F", salary: 35 });
+// update active collection having its documents id = 2
+myDb.update({ id: 2 }, { id: 1111, name: "tom" });
+
+// get current data from active collection
+var newData = myDb.find({});
+console.log(newData[0], newData[1]);
+// Object {id: 1, name: "hbeauty", enroll: "2018-01-20", sex: "M", salary: 15}
+// Object {name: "tom"}
+// the result will be as following where second document is completely replaced.
+</pre> 
+If <new value> contains "$set" key then it will update the the keys set.
+<pre>
+// update active collection having its documents id = 2
+myDb.update({ id: 2 }, { $set: { id: 1111, name: "tom" } });
+
+// get current data from active collection
+var newData = myDb.find({});
+console.log(newData[0], newData[1]);
+//Object {id: 1, name: "hbeauty", enroll: "2018-01-20", sex: "M", salary: 15}
+//Object {id: 1111, name: "tom", enroll: "2017-02-28", sex: "F", salary: 35}
+// only id,name were updated.
+</pre>
+Condition is object which is exactly similar to the condition for find method.
+<a href="?#search-condition">Search Condition</a>
+
+<h3>Uses 1</h3>
+<pre>
+var searchCondition = { id: { $lt: 2 } };
+var newData = { $set: { name: "harilarl" } };
+myDb.update(searchCondition, newData);
+
+// Get number of documents updated
+var updatedNumber = myDb.collAffected();
+console.log("number of updated documents is " + updatedNumber);
+</pre>
+
+                    </div>
+            </div>
+
+            <div id="delete">
+                    <div class="row">
+                        <h2>Delete Data</h2>
+                        <div class="code">
+                            delete - &lt;collection name&gt;?, &lt;condition&gt;
+                            @returns: boolean
+                        </div>
+
+<h3>Uses 1</h3>
+Delete from user where id is less then two.
+<pre>
+var searchCondition = { id: { $lt: 2 } };
+var documentName = "user"
+var isDelete = myDb.delete(documentName, searchCondition);
+if (isDelete == true) {
+    console.log("Deleted.");
+}
+
+// Get number of documents deleted
+var deletedNumber = myDb.collAffected();
+console.log("number of deleted documents is " + deletedNumber);
+</pre>
                     </div>
                 </div>
         </div>
