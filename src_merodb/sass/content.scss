@@ -1,0 +1,44 @@
+.contentbox{
+    margin-left:190px;
+    font-size: 1.2rem;
+
+    h2{
+        font-family: 'Cinzel Decorative', cursive;
+        margin-bottom: 0px;
+    }
+    .row{
+        margin: 15px 5px;
+        padding: 5px 5px;
+        border:2px solid #e9ebee;
+    }
+
+    ul{
+        padding: 0 20px 20px 20px;
+    }
+
+    pre{
+        padding: 16px;
+        overflow: auto;
+        font-size: 16px;
+        line-height: 1.45;
+        background-color: #f6f8fa;
+        border-radius: 3px;
+    }
+
+    .code{
+        font-size: 1rem;
+        margin-bottom: 10px;
+        color:#0000ff;
+    }
+
+    table{
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th,td{
+        border: 1px solid #000000;
+    }
+
+    tr:nth-child(odd) { background-color: #f6f8fa; }
+}

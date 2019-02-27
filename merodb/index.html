@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="MeroDB is a Javascript library that helps to manipulate Javascript objects easily like a database.">
     <title>MeroDB</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -62,7 +63,7 @@
 
         <div class="contentbox">
             <div class="row">
-                <h2>About</h2>
+                <h1>About MeroDB</h1>
                 MeroDB is a Javascript library that is released under MIT liscense. It helps to manipulate Javascript
                 objects
                 easily like a database.
@@ -109,7 +110,8 @@ var myDb = new MeroDB();
     });
 &lt;/script&gt;
 </pre>
-                        Look here for <a href="https://github.com/dakc/merodb/blob/master/example.html">SAMPLE</a>
+                        Look here for <a href="https://github.com/dakc/merodb/blob/master/example.html">SAMPLE.</a>
+                        (If your browser shows error, then load polyfill as in sample page.)
                 </div>
             </div>
 
@@ -213,27 +215,27 @@ It will create a collection named user and inserts data of myObj.
 <pre>
 var myObj = [
                 {
-                "userId": 1,
-                "id": 1,
-                "title": "delectus aut autem",
-                "completed": false
+                    "userId": 1,
+                    "id": 1,
+                    "title": "delectus aut autem",
+                    "completed": false
                 },
                 {
-                "userId": 1,
-                "id": 2,
-                "title": "quis ut nam facilis et officia qui",
-                "completed": false
+                    "userId": 1,
+                    "id": 2,
+                    "title": "quis ut nam facilis et officia qui",
+                    "completed": false
                 },
                 {
-                "userId": 1,
-                "id": 3,
-                "title": "fugiat veniam minus",
-                "completed": false
+                    "userId": 1,
+                    "id": 3,
+                    "title": "fugiat veniam minus",
+                    "completed": false
                 },
                 {
-                "userId": 1,
-                "id": 4,
-                "title": "et porro tempora",
+                    "userId": 1,
+                    "id": 4,
+                    "title": "et porro tempora",
                 }
             ];
 myDb.loadFromJsonObject("user", myObj);
