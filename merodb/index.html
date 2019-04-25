@@ -50,6 +50,21 @@
                         </ul>
                     </nav>
                 </div>
+
+                <div>
+                    <header>Utilities</header>
+                    <nav>
+                        <ul>
+                            <li><i></i><a href="?#getDocumentCount">getDocumentCount</a></li>
+                            <li><i></i><a href="?#getDocumentNumAffected">getDocumentNumAffected</a></li>
+                            <li><i></i><a href="?#getActiveCollection">getActiveCollection</a></li>
+                            <li><i></i><a href="?#getError">getError</a></li>
+                            <li><i></i><a href="?#getCollections">getCollections</a></li>
+                            <li><i></i><a href="?#save">save</a></li>
+                            <li><i></i><a href="?#updateAlways">updateAlways</a></li>
+                        </ul>
+                    </nav>
+                </div>
             </div>
 
             <div class="links">
@@ -111,7 +126,7 @@ var myDb = new MeroDB();
 &lt;/script&gt;
 </pre>
                         Look here for <a href="https://github.com/dakc/merodb/blob/master/example.html">SAMPLE.</a>
-                        (If your browser shows error, then load polyfill as in sample page.)
+                        (It works on almost all latest browsers.)
                 </div>
             </div>
 
@@ -473,8 +488,142 @@ console.log("number of deleted documents is " + deletedNumber);
 </pre>
                     </div>
                 </div>
-        </div>
 
+                <!-- <div id="install_npm">
+                    <div class="row">
+                        <h2>Update Data</h2>
+                        <div class="code">
+                            update - &lt;collection name&gt;?, &lt;condition&gt;, &lt;new value&gt;
+                            @returns: boolean
+                        </div>
+                        Install the library by using following command.
+                    </div>
+                </div> -->
+                <div id="getDocumentCount">
+                    <div class="row">
+                        <h2>Get Document Count</h2>
+                        <div class="code">
+                            getDocumentCount - &lt;collection name&gt;?
+                            @returns: string
+                        </div>
+                        It will return the number of documents existing on given collection name. 
+                        If no collection name is specified then it will return the active collection's row number.
+<pre>
+// get document count for "user" collection
+var collectionName = "user";
+var numberRows = myDb.getDocumentCount(collectionName);
+
+// get active collection's document count
+var numberRowsActiveCollection =  myDb.getDocumentCount();
+</pre>
+                    </div>
+                </div>
+
+                <div id="getDocumentNumAffected">
+                        <div class="row">
+                            <h2>Get Affected Document Number</h2>
+                            <div class="code">
+                                getDocumentNumAffected - 
+                                @returns: number
+                            </div>
+                            It will return number of documents in a collection affected after update or delete process.
+<pre>
+// delete from collection user
+var searchCondition = { id: { $lt: 2 } };
+var collectionName = "user"
+var isDelete = myDb.delete(documentName, searchCondition);
+// get the number of documents deleted
+var numberRowsDeleted = myDb.getDocumentNumAffected();
+</pre>
+                        </div>
+                    </div>
+
+                    <div id="getActiveCollection">
+                            <div class="row">
+                                <h2>Get Active Collection</h2>
+                                <div class="code">
+                                    getActiveCollection - 
+                                    @returns: string
+                                </div>
+                                It will return the name of active collection if exist.
+<pre>
+// get name of active collection
+var activeCollection = myDb.getActiveCollection();
+</pre>
+                            </div>
+                        </div>
+                        
+                        
+                                        <div id="getError">
+                            <div class="row">
+                                <h2>Get Error</h2>
+                                <div class="code">
+                                    getError - 
+                                    @returns: string
+                                </div>
+                                It will return error content.
+<pre>
+// get the error message
+var errorMessage = myDb.getError();
+</pre>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                                        <div id="getCollections">
+                            <div class="row">
+                                <h2>Get Collection List</h2>
+                                <div class="code">
+                                    getCollections - 
+                                    @returns: object
+                                </div>
+                                It will return all the collections as array.
+<pre>
+// get the names of collections existing in a database
+var arrayCollection = myDb.getCollections();
+</pre>
+                            </div>
+                        </div>
+                        
+                        
+                                        <div id="save">
+                            <div class="row">
+                                <h2>Save Data Explicit</h2>
+                                <div class="code">
+                                    save - &lt;file path&gt;
+                                    @returns: boolean
+                                </div>
+                                It will output the contents of database to given file.This method <em>only works for nodejs environment</em>. 
+<pre>
+// write contents to "my.db"
+myDb.save("./my.db");
+</pre>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                                        <div id="updateAlways">
+                            <div class="row">
+                                <h2>Save Data Implicit</h2>
+                                <div class="code">
+                                    updateAlways - &lt;file path&gt;
+                                    @returns: nothing
+                                </div>
+                                It will output the contents of database on each insert,update,delete action(no need to call save method).
+                                This method <em>only works for nodejs environment</em>. 
+<pre>
+// write contents to "my.db" on each change
+myDb.updateAlways("./my.db");
+</pre>
+                            </div>
+                        </div>
+                        
+
+
+
+        </div>
     </div>
 
     <script src="js/index.js"></script>

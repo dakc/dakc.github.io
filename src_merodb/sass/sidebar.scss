@@ -3,7 +3,7 @@
     position: fixed;
     left: 0;
     top: 0;
-    width:180px;
+    width:200px;
     height: 100vh;
     border-left: 5px solid darkslategray;
 
@@ -28,7 +28,7 @@
 
     .menu{
         header{
-            font-size: 2rem;
+            font-size: 1.3rem;
             font-family: 'Indie Flower', cursive;
             margin-left: 3px;
         }
@@ -41,7 +41,8 @@
             li {
                 // margin: 20px auto;
                 border: 1px solid transparent;
-                font-size: 1.5rem;
+                // font-size: 1.5rem;
+                word-wrap: break-word;
             }
 
             li:hover {
