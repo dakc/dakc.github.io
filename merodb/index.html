@@ -60,8 +60,10 @@
                             <li><i></i><a href="?#getActiveCollection">getActiveCollection</a></li>
                             <li><i></i><a href="?#getError">getError</a></li>
                             <li><i></i><a href="?#getCollections">getCollections</a></li>
+                            <li><i></i><a href="?#loadFromJsonObject">loadFromJsonObject</a></li>
                             <li><i></i><a href="?#save">save</a></li>
                             <li><i></i><a href="?#updateAlways">updateAlways</a></li>
+                            <li><i></i><a href="?#loadFromFile">loadFromFile</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -586,6 +588,47 @@ var arrayCollection = myDb.getCollections();
                             </div>
                         </div>
                         
+
+                        <div id="loadFromJsonObject">
+                                <div class="row">
+                                    <h2>Load From Json Object</h2>
+                                    <div class="code">
+                                        loadFromJsonObject - &lt;collection name&gt;, &lt;data&gt;
+                                        @returns: boolean
+                                    </div>
+                                                        <table>
+                                <tr>
+                                    <th>parameter</th>
+                                    <th>type</th>
+                                    <th>description</th>
+                                </tr>
+                                <tr>
+                                    <td>collection name</td>
+                                    <td>string</td>
+                                    <td>name of collection to hold data</td>
+                                </tr>
+                                <tr>
+                                    <td>data</td>
+                                    <td>array of json object</td>
+                                    <td>data to be loaded in a database</td>
+                                </tr>
+                            </table>
+                            
+                                    It will load the json data into a database.
+<pre>
+// create data to be inserted
+let userData = [];
+userData.push({ id: 1, name: "pk", salary: 10 });
+userData.push({ id: 2, name: "ck", age: 20, salary: 20, sex: "M" });
+userData.push({ id: 3, name: "dk", create: "2018-01-20", sex: "M", salary: 35 });
+userData.push({ id: 4, name: "kk", salary: 25, sex: "M" });
+userData.push({ id: 5, name: "kk", salary: 15 });
+// load to database with collection name user
+myDb.loadFromJsonObject("user", userData);
+</pre>
+                                </div>
+                            </div>
+                            
                         
                                         <div id="save">
                             <div class="row">
@@ -618,8 +661,29 @@ myDb.save("./my.db");
 myDb.updateAlways("./my.db");
 </pre>
                             </div>
-                        </div>
-                        
+                        </div>                                                  
+                            
+                            
+                                            <div id="loadFromFile">
+                                <div class="row">
+                                    <h2>Load From File</h2>
+                                    <div class="code">
+                                        loadFromFile - &lt;file path&gt;
+                                        @returns: boolean
+                                    </div>
+                                    It will load the data from file
+                                    This method <em>only works for nodejs environment</em>. 
+<pre>
+// load from file
+myDb.loadFromFile("./my.db");
+</pre>
+                                </div>
+                            </div>
+                            
+                            
+
+                    
+                            
 
 
 
