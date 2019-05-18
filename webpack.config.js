@@ -5,19 +5,24 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const AutoPrefixer = require('autoprefixer');
 
 module.exports = [{
+    mode: 'development',
     entry: {
-        index: [
-            './src_merodb/js/index.js',
-            './src_merodb/sass/index.scss',
+        merodb: [
+            './src/merodb/js/index.js',
+            './src/merodb/sass/index.scss',
+        ],
+        majidai: [
+            './src/majidai/js/index.js',
+            './src/majidai/sass/index.scss',
         ],
     },
     output: {
-        path: path.resolve(__dirname, 'merodb'),
+        path: path.resolve(__dirname, 'assets'),
         filename: 'js/[name].js',
         publicPath: '/',
     },
     devServer: {
-        contentBase: './merodb',
+        contentBase: './',
         watchContentBase: true,
         port: 3000,
         open: true,
@@ -66,7 +71,7 @@ module.exports = [{
     },
     plugins: [
         new MiniCssExtractPlugin({
-            filename: 'css/style.css',
+            filename: 'css/[name].css',
         }),
     ],
 }, ];

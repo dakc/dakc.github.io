@@ -3,9 +3,10 @@
     position: fixed;
     left: 0;
     top: 0;
-    width:200px;
+    width:180px;
     height: 100vh;
-    border-left: 5px solid darkslategray;
+    border-left: 8px solid #1c2f2f;
+    overflow-y: auto;
 
     .personal {
         display: flex;
@@ -15,9 +16,10 @@
    
 
     img {
-        width: 40px;
+        width: 40px;;
         height: 40px;
         border-radius: 50%;
+        border: 1px solid #777;
     }
 }
     .menu::before {
@@ -29,8 +31,8 @@
     .menu{
         header{
             font-size: 1.3rem;
-            font-family: 'Indie Flower', cursive;
-            margin-left: 3px;
+            // font-family: 'Indie Flower', cursive;
+            padding-left: 10px;
         }
     }
     .menu nav {
@@ -39,14 +41,17 @@
             list-style: none;
 
             li {
-                // margin: 20px auto;
                 border: 1px solid transparent;
-                // font-size: 1.5rem;
+                font-size: 1.0rem;
                 word-wrap: break-word;
             }
 
             li:hover {
-                border: 1px dotted #fff;
+                background: darkslategray;
+                cursor: pointer;
+                a{
+                    color: #ffffff;
+                }
             }
 
             a {
@@ -55,6 +60,13 @@
 
             i {
                 margin: 0 1em;
+            }
+
+            li.active{
+                background: #1c2f2f;
+                a{
+                    color: #ffffff;
+                }
             }
         }
     }

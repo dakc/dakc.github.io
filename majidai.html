@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="A simple and light web framework for nodejs.It uses a SINGLE external library called 'merodb' ONLY.
+        All the functions will work on native node environment without installing any other libraries.">
+    <title>majidai</title>
+    <link rel="stylesheet" href="assets/css/majidai.css">
+    <link rel="icon" type="image/x-icon" href="https://prakashkc99.com/favicon.ico?key=majidai">
+</head>
+
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="personal">
+                <img src="https://prakashkc99.com/favicon.ico" alt="avatar">
+                <span>Da KC</span>
+                <span>majidai</span>
+            </div>
+            <div class="menu">
+                <div>
+                    <header>About</header>
+                    <nav>
+                        <ul>
+                            <li><i></i><a href="?#about">about</a></li>
+                            <li><i></i><a href="?#functions">functions</a></li>
+                            <li><i></i><a href="?#ab_test">ab test</a></li>
+                            <li><i></i><a href="?#install">install</a></li>
+                            <li><i></i><a href="?#setup">setup</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div>
+                    <header>logging</header>
+                    <nav>
+                        <ul>
+                            <li><i></i><a href="?#log_error">error</a></li>
+                            <li><i></i><a href="?#log_debug">debug</a></li>
+                            <li><i></i><a href="?#log_access">access</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div>
+                    <header>session</header>
+                    <nav>
+                        <ul>
+                            <li><i></i><a href="?#session_put">put</a></li>
+                            <li><i></i><a href="?#session_get">get</a></li>
+                            <li><i></i><a href="?#session_delete">delete</a></li>
+                            <li><i></i><a href="?#session_destroy">destroy</a></li>
+                            <li><i></i><a href="?#session_regenId">regenId</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div>
+                    <header>data</header>
+                    <nav>
+                        <ul>
+                            <li><i></i><a href="?#data_getParams">getParams</a></li>
+                            <li><i></i><a href="?#data_postParams">postParams </a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+
+                <div>
+                    <header>client</header>
+                    <nav>
+                        <ul>
+                            <li><i></i><a href="?#client_ip">ip</a></li>
+                            <li><i></i><a href="?#client_hostName">hostName</a></li>
+                            <li><i></i><a href="?#client_userAgent">userAgent</a></li>
+                            <li><i></i><a href="?#client_referrer">referrer</a></li>
+                            <li><i></i><a href="?#client_url">url</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+
+                <div>
+                    <header>response</header>
+                    <nav>
+                        <ul>
+                            <li><i></i><a href="?#response_static">static</a></li>
+                            <li><i></i><a href="?#response_error">error</a></li>
+                            <li><i></i><a href="?#response_plainText">plainText</a></li>
+                            <li><i></i><a href="?#response_json">json</a></li>
+                            <li><i></i><a href="?#response_redirect">redirect</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div>
+                    <header>native</header>
+                    <nav>
+                        <ul>
+                            <li><i></i><a href="?#native_request">request</a></li>
+                            <li><i></i><a href="?#native_response">response</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div>
+                    <header>authentication</header>
+                    <nav>
+                        <ul>
+                            <li><i></i><a href="?#authentication_triggerLoginCheck">triggerLoginCheck</a></li>
+                            <li><i></i><a href="?#authentication_mustBeLoggedIn">mustBeLoggedIn </a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+            </div>
+
+            <div class="links">
+                <ul>
+                    <li><a href="https://travis-ci.com/dakc/merodb"><img
+                                src="https://travis-ci.com/dakc/merodb.svg?branch=master"></a></li>
+                    <li><a href="https://www.npmjs.com/package/merodb"><img
+                                src="https://img.shields.io/npm/v/merodb.svg"></a></li>
+                    <li><a href="https://github.com/dakc/merodb/blob/master/LICENSE"><img
+                                src="https://img.shields.io/github/license/dakc/merodb.svg?style=popout"></a></li>
+                </ul>
+            </div>
+
+
+            <!-- copyright -->
+            <div class="copyright">
+                <span>©&nbsp;2019&nbsp;</span>
+                <a href="https://github.com/dakc" title="dakc github page">DA KC</a>
+                <span>&nbsp;–&nbsp;All rights reserved</span>
+            </div>
+
+        </div>
+
+        <div class="contentbox">
+            <div id="about">
+                <div class="row">
+                    <h1>About majidai</h1>
+                    <p>
+                        majidai is a nodejs web framework released under MIT liscense.
+                        It uses a SINGLE external library called "merodb" ONLY.
+                        All the functions will work on native node environment <em>without installing any otherlibraries</em>.
+                        That is why it is very <em>simple</em> and <em>lightweight</em>.
+                    </p>
+
+                </div>
+            </div>
+
+            <div id="functions">
+                <div class="row">
+                    <h1>Function List</h1>
+                    <p>
+                        The Tree Structure for the functions of majidai is as following, which we will be discussing one
+                        by
+                        one later.
+                        <pre>
+app
+|------data
+|             |-------getParams
+|             |-------postParams
+|
+|------session
+|             |-------put
+|             |-------get
+|             |-------delete
+|             |-------destroy
+|             |-------regenId
+|
+|------logger
+|             |-------access
+|             |-------error
+|             |-------debug
+|
+|------client
+|             |-------ip
+|             |-------hostName
+|             |-------userAgent
+|             |-------referrer
+|             |-------url
+|
+|------native
+|             |-------request
+|             |-------response
+|
+|------triggerLoginCheck
+|
+|------mustBeLoggedIn
+        </pre>
+                    </p>
+                </div>
+            </div>
+
+            <div id="ab_test">
+                <div class="row">
+                    <h1>Apache ab Test</h1>
+                    <p>
+                        The result of ab test for 15000 concurrent access is as following.
+                        <pre>
+D:\Program Files\apache\bin>ab.exe -n 15000 -c 15000 http://127.0.0.1/
+This is ApacheBench, Version 2.3 <$Revision: 1807734 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 127.0.0.1 (be patient)
+Completed 1500 requests
+Completed 3000 requests
+Completed 4500 requests
+Completed 6000 requests
+Completed 7500 requests
+Completed 9000 requests
+Completed 10500 requests
+Completed 12000 requests
+Completed 13500 requests
+Completed 15000 requests
+Finished 15000 requests
+
+
+Server Software:        majidai@1.0
+Server Hostname:        127.0.0.1
+Server Port:            80
+
+Document Path:          /
+Document Length:        5 bytes
+
+Concurrency Level:      15000
+Time taken for tests:   31.412 seconds
+Complete requests:      15000
+Failed requests:        0
+Total transferred:      5535000 bytes
+HTML transferred:       75000 bytes
+Requests per second:    477.53 [#/sec] (mean)
+Time per request:       31411.883 [ms] (mean)
+Time per request:       2.094 [ms] (mean, across all concurrent requests)
+Transfer rate:          172.08 [Kbytes/sec] received
+
+Connection Times (ms)
+                min  mean[+/-sd] median   max
+Connect:        0    2  27.5      0     507
+Processing:  2237 16225 7981.5  15952   30159
+Waiting:      608 15065 8302.0  14743   29662
+Total:       2238 16227 7981.5  15952   30159
+
+Percentage of the requests served within a certain time (ms)
+    50%  15952
+    66%  20361
+    75%  22891
+    80%  24654
+    90%  27115
+    95%  28889
+    98%  29592
+    99%  30128
+    100%  30159 (longest request)
+                    </pre>
+                    </p>
+                </div>
+            </div>
+
+            <div id="install">
+                <div class="row">
+                    <h2>Installation</h2>
+                    Install the framework by using following command.
+                    <pre>
+npm install majidai
+</pre>
+                </div>
+            </div>
+
+
+            <div id="setup">
+                <div class="row">
+                    <h2>Setup</h2>
+                    The structure for writting code will be as following.
+                    <pre>
+// import majidai
+const majidai = require("majidai");
+
+// create instance
+const server = new majidai();
+
+// create routing
+server.METHOD("ROUTING", function (app) {
+    // app object contains different properties and methods
+    // which we will be discussing below
+
+    // do codings
+
+    // return response
+});
+
+// start listening server
+server.start();
+                    </pre>
+                    <p class="strong">※ Change METHOD with either "get" or "post". And ROUTING with the appropriate
+                        route.</p>
+
+                    Let us Create a file named server.js and paste following content.
+                    <pre>
+// import majidai
+const majidai = require("majidai");
+
+// create instance
+const server = new majidai();
+
+// create routing
+server.get("/", function (app) {
+    return "Hello majidai";
+});
+
+// start listening server
+server.start();
+</pre>
+                    Run server by running following command.
+                    <pre>
+node server.js
+</pre>
+                    <p>
+                        Now, your server will be listening at locahost with 80 port. If the port is not open then, it
+                        will throw error.
+                    </p>
+                    <p>
+                        The Default Configuration will be as following.
+                        <pre>
+{
+    port: 80,    // port number
+    host: "0.0.0.0",    // host ip 
+    log: {
+        folder: "./log",    // folder where to write log
+        access: false,      // if is set to true, it will write access information like time, browser information, url, etc into a log file
+        debug: false,       // if set to true, it will output debug information to a file
+        error: true         // if any error occours, it will output to a file
+    },
+    publicDir: "./public",  // the folder to serve static files like css,js,images,etc
+    isProduction: true, // if set false it will output all the logs on console
+    sessionTime: 1000 * 60 * 5,// session activation time in miliseconds
+    maxBodySize: 100 * 1024,  // maximum size allowed to body in byte
+    header: {    // default header configuration
+        "x-content-type-options": "nosniff",
+        "x-frame-options": "SAMEORIGIN",
+        "x-xss-protection": "1; mode=block",
+        "server": "majidai@1.0",
+        "Access-Control-Allow-Origin":"*",
+    }
+}
+                        </pre>
+                    </p>
+                    <p class="strong">We can chage by passing the Configuration while creating majidai instance.</p>
+                    <p>Let us create a server listening on 8000 port and activate access log.</p>
+                    <pre>
+// import majidai
+const majidai = require("majidai");
+
+// create configuration
+var config =  {
+    port: 8000,
+    log: {
+        access: true
+    },
+};
+
+// create instance
+const server = new majidai(config);
+
+// create routing
+server.get("/", function (app) {
+    return "Hello majidai";
+});
+
+// start listening server
+server.start();
+                    
+                    </pre>
+                </div>
+            </div>
+
+            <div id="log_error">
+                <div class="row">
+                    <h2>Error Logging</h2>
+                    <div class="code">
+                        app.logger.error - &lt;content&gt;, &lt;client info&gt;?
+                    </div>
+                    It will log error in json format to a file with name yyyy-mm-dd.error
+                    <table>
+                        <tr>
+                            <th>parameter</th>
+                            <th>type</th>
+                            <th>description</th>
+                        </tr>
+                        <tr>
+                            <td>content</td>
+                            <td>string</td>
+                            <td>Error content</td>
+                        </tr>
+                        <tr>
+                            <td>client info</td>
+                            <td>boolean (optional)</td>
+                            <td>will write browsers,ip address,etc as a prefix to the content, if set to true. By
+                                default it is false.</td>
+                        </tr>
+                    </table>
+                    <p>
+                        Let's try it,
+                        <pre>
+app.logger.error("User Id is not valid");
+// or
+app.logger.error("User Id is not valid",true);
+</pre>
+                    </p>
+                    <p class="strong">By default it is ON, But you can OFF it through configuration if not needed.</p>
+                    <pre>
+var config = {
+    log: {
+        error: false
+    }
+}
+</pre>
+                </div>
+            </div>
+
+
+            <div id="log_debug">
+                <div class="row">
+                    <h2>Debug Logging</h2>
+                    <div class="code">
+                        app.logger.debug - &lt;content&gt;, &lt;client info&gt;?
+                    </div>
+                    It will log in json format to a file with name yyyy-mm-dd.debug
+                    <table>
+                        <tr>
+                            <th>parameter</th>
+                            <th>type</th>
+                            <th>description</th>
+                        </tr>
+                        <tr>
+                            <td>content</td>
+                            <td>string</td>
+                            <td>Error content</td>
+                        </tr>
+                        <tr>
+                            <td>client info</td>
+                            <td>boolean (optional)</td>
+                            <td>will write browsers,ip address,etc as a prefix to the content, if set to true. By
+                                default it is false.</td>
+                        </tr>
+                    </table>
+                    <p>
+                        Let's try it,
+                        <pre>
+    app.logger.debug("User Id is not valid");
+    // or
+    app.logger.debug("User Id is not valid",true);
+    </pre>
+                    </p>
+                    <p class="strong">For removing IO stress, By default it is set to OFF.
+                        But you can ON it through configuration if needed.</p>
+                    <pre>
+    var config = {
+        log: {
+            debug: true
+        }
+    }
+</pre>
+                </div>
+            </div>
+
+            <div id="log_access">
+                <div class="row">
+                    <h2>Access Logging</h2>
+                    It will log for each access in json format to a file with name yyyy-mm-dd.access
+
+                    <p class="strong">For removing IO stress, By default it is set to OFF.
+                        But you can ON it through configuration if needed.</p>
+                    <pre>
+var config = {
+    log: {
+        access: true
+    }
+}
+</pre>
+                    <p class="strong">This function is not available to users. You only can either activate or
+                        deactivate which is by default.</p>
+                </div>
+            </div>
+
+            <div id="session_put">
+                <div class="row">
+                    <h2>Session - put</h2>
+                    <div class="code">
+                        app.session.put - &lt;key&gt;, &lt;value&gt;
+                    </div>
+                    majidai will help you to manipulate data easily into session.
+                    put method will save the data into session.
+                    <table>
+                        <tr>
+                            <th>parameter</th>
+                            <th>type</th>
+                            <th>description</th>
+                        </tr>
+                        <tr>
+                            <td>key</td>
+                            <td>string</td>
+                            <td>key to data</td>
+                        </tr>
+                        <tr>
+                            <td>value</td>
+                            <td>any (number,boolean,string,object)</td>
+                            <td>value for key.</td>
+                        </tr>
+                    </table>
+                    <p>
+                        Let's try it,
+                        <pre>
+// put a data in session with key "price" and value 100
+app.session.put("price", 100);
+
+// put object
+var userObj = {id:1,name:"dakc"};
+app.session.put("user",userObj);
+            </pre>
+                    </p>
+                    <p class="strong">Session will be valid for the the time set in configuration.
+                        If the time is expired all the datas will be lost automatically.
+                    </p>
+                    <p>We can change the session time through configuration.
+                        <pre>
+// configuration for setting session active time for 1hour
+var config = {
+    sessionTime: 1000 * 60 * 60
+}
+</pre>
+                    </p>
+                </div>
+            </div>
+
+            <div id="session_get">
+                <div class="row">
+                    <h2>Session - get</h2>
+                    <div class="code">
+                        app.session.get - &lt;key&gt;?
+                    </div>
+                    This method will get the data from session.
+                    <table>
+                        <tr>
+                            <th>parameter</th>
+                            <th>type</th>
+                            <th>description</th>
+                        </tr>
+                        <tr>
+                            <td>key</td>
+                            <td>string (optional)</td>
+                            <td>key to get data</td>
+                        </tr>
+                    </table>
+                    <p>
+                        Let's try it,
+                        <pre>
+// lets get the value of price
+var price = app.session.get("price");
+
+// lets get all data from session (do not pass any argument)
+var sessionData = app.session.get();
+</pre>
+                    </p>
+                    <p class="strong">If no argument is passed, it will return all the data from session.
+                    </p>
+                </div>
+            </div>
+
+            <div id="session_delete">
+                <div class="row">
+                    <h2>Session - delete</h2>
+                    <div class="code">
+                        app.session.delete - &lt;key&gt;
+                    </div>
+                    This method will delete the data for given key from session.
+                    <table>
+                        <tr>
+                            <th>parameter</th>
+                            <th>type</th>
+                            <th>description</th>
+                        </tr>
+                        <tr>
+                            <td>key</td>
+                            <td>string</td>
+                            <td>key to remove from session</td>
+                        </tr>
+                    </table>
+                    <p>
+                        Let's try it,
+                        <pre>
+// lets delete the data with key "price" from session
+app.session.delete("price");
+</pre>
+                    </p>
+                </div>
+            </div>
+
+            <div id="session_destroy">
+                <div class="row">
+                    <h2>Session - destroy</h2>
+                    <div class="code">
+                        app.session.destroy -
+                    </div>
+                    This method will delete <span class="strong">all the data</span> from session.
+
+                    <p>
+                        Let's try it,
+                        <pre>
+app.session.destroy();
+</pre>
+                    </p>
+                </div>
+            </div>
+
+            <div id="session_regenId">
+                <div class="row">
+                    <h2>Session - regenerate session id</h2>
+                    <div class="code">
+                        app.session.regenId -
+                    </div>
+                    This method will regenrate the session ID.
+                    <p>
+                        Let's try it,
+                        <pre>
+app.session.regenId();
+</pre>
+                    </p>
+                    <p class="strong">※ It will DESTROY all the datas put before the method is called.
+                        So, Be carefull while saving data.
+                        Saving data after calling this method wont delete.
+                    </p>
+                </div>
+            </div>
+
+            <div id="data_getParams">
+                <div class="row">
+                    <h2>GET method parameters</h2>
+                    <div class="code">
+                        app.data.getParams - &lt;key&gt;?
+                    </div>
+                    This method will get the data sent as GET parameters.
+                    <table>
+                        <tr>
+                            <th>parameter</th>
+                            <th>type</th>
+                            <th>description</th>
+                        </tr>
+                        <tr>
+                            <td>key</td>
+                            <td>string (optional)</td>
+                            <td>key to get data</td>
+                        </tr>
+                    </table>
+                    <p>
+                        Let's try it,
+                        <pre>
+// lets get the value of price (../home?price=230)
+var price = app.data.getParams("price");
+
+// get all data
+var getData = app.data.getParams();
+// get value for id (eg, url...?id=yuyuu)
+var idSent = getData.id;
+</pre>
+                    </p>
+                    <p class="strong">If no argument is passed, it will return all the data in JSON format.
+                    </p>
+                </div>
+            </div>
+
+            <div id="data_postParams">
+                <div class="row">
+                    <h2>POST method parameters</h2>
+                    <div class="code">
+                        app.data.postParams - &lt;key&gt;?
+                    </div>
+                    This method will get the data sent as POST parameters.
+                    For now it only supports <span class="strong">x-www-form-urlencoded</span>.
+                    <table>
+                        <tr>
+                            <th>parameter</th>
+                            <th>type</th>
+                            <th>description</th>
+                        </tr>
+                        <tr>
+                            <td>key</td>
+                            <td>string (optional)</td>
+                            <td>key to get data</td>
+                        </tr>
+                    </table>
+                    <p>
+                        Let's try it,
+                        <pre>
+// lets get the value of price (eg, &lt;input name="price" value="2000"&gt;)
+var price = app.data.postParams("price");
+
+// get all data send by POST method
+var postData = app.data.postParams();
+// get value for id
+var idSent = postData.id;
+</pre>
+                    </p>
+                    <p class="strong">If no argument is passed, it will return all the data in JSON format.
+                    </p>
+                </div>
+            </div>
+
+            <div id="client_ip">
+                <div class="row">
+                    <h2>Client Ip Address</h2>
+                    <div class="code">
+                        app.client.ip -
+                    </div>
+                    This method will return client's IP Address.
+                    <p>
+                        Let's try it,
+                        <pre>
+app.client.ip();
+</pre>
+                    </p>
+                    <p class="strong"></p>
+                </div>
+            </div>
+
+            <div id="client_hostName">
+                <div class="row">
+                    <h2>Client host name</h2>
+                    <div class="code">
+                        app.client.hostName -
+                    </div>
+                    This method will return client's HOST name.
+                    <p>
+                        Let's try it,
+                        <pre>
+app.client.hostName();
+</pre>
+                    </p>
+                    <p class="strong"></p>
+                </div>
+            </div>
+
+            <div id="client_userAgent">
+                <div class="row">
+                    <h2>Client browser information</h2>
+                    <div class="code">
+                        app.client.userAgent -
+                    </div>
+                    This method will return client's browser information from which it is accessed.
+                    <p>
+                        Let's try it,
+                        <pre>
+app.client.userAgent();
+</pre>
+                    </p>
+                    <p class="strong"></p>
+                </div>
+            </div>
+
+            <div id="client_referrer">
+                <div class="row">
+                    <h2>Refferer name</h2>
+                    <div class="code">
+                        app.client.referrer -
+                    </div>
+                    This method will return referrer's name.
+                    <p>
+                        Let's try it,
+                        <pre>
+app.client.referrer();
+</pre>
+                    </p>
+                    <p class="strong"></p>
+                </div>
+            </div>
+
+            <div id="client_url">
+                <div class="row">
+                    <h2>URL information</h2>
+                    <div class="code">
+                        app.client.url -
+                    </div>
+                    This method will return url information from which it is accessed to.
+                    <p>
+                        Let's try it,
+                        <pre>
+app.client.url();
+</pre>
+                    </p>
+                    <p class="strong"></p>
+                </div>
+            </div>
+
+            <div id="response_static">
+                <div class="row">
+                    <h2>Respond static files</h2>
+                    <div class="code">
+                        app.respond.static - &lt;file path&gt;
+                    </div>
+                    This method will respond content from static files.
+                    <table>
+                        <tr>
+                            <th>parameter</th>
+                            <th>type</th>
+                            <th>description</th>
+                        </tr>
+                        <tr>
+                            <td>file path</td>
+                            <td>string</td>
+                            <td>either absolute or relative path</td>
+                        </tr>
+                    </table>
+                    <p>
+                        Let's try it,
+                        <pre>
+return app.respond.static("./somewhere/home.html");
+</pre>
+                    </p>
+                    <p class="strong"></p>
+                </div>
+            </div>
+
+            <div id="response_error">
+                <div class="row">
+                    <h2>Respond Error</h2>
+                    <div class="code">
+                        app.respond.error - &lt;error code&gt;
+                    </div>
+                    This method will respond error.
+                    <table>
+                        <tr>
+                            <th>parameter</th>
+                            <th>type</th>
+                            <th>description</th>
+                        </tr>
+                        <tr>
+                            <td>error code</td>
+                            <td>number</td>
+                            <td>error code like, 401,500,..</td>
+                        </tr>
+                    </table>
+                    <p>
+                        Let's try it,
+                        <pre>
+// lets respond with internal server error
+return app.respond.error(500);
+</pre>
+                    </p>
+                    <p class="strong"></p>
+                </div>
+            </div>
+
+            <div id="response_plainText">
+                <div class="row">
+                    <h2>Respond plain text</h2>
+                    <div class="code">
+                        app.respond.plainText - &lt;content&gt;
+                    </div>
+                    This method will respond as plain text.
+                    <table>
+                        <tr>
+                            <th>parameter</th>
+                            <th>type</th>
+                            <th>description</th>
+                        </tr>
+                        <tr>
+                            <td>content</td>
+                            <td>string</td>
+                            <td>content to respond</td>
+                        </tr>
+                    </table>
+                    <p>
+                        Let's try it,
+                        <pre>
+return app.respond.plainText("Hello majidai.");
+// or just return string
+return "Hello majidai";
+</pre>
+                    </p>
+                    <p class="strong">Returning string will as above will responds as plain text.</p>
+                </div>
+            </div>
+
+            <div id="response_json">
+                <div class="row">
+                    <h2>Respond as JSON</h2>
+                    <div class="code">
+                        app.respond.json - &lt;content&gt;
+                    </div>
+                    This method will respond the content as json.
+                    <table>
+                        <tr>
+                            <th>parameter</th>
+                            <th>type</th>
+                            <th>description</th>
+                        </tr>
+                        <tr>
+                            <td>content</td>
+                            <td>object</td>
+                            <td>json object to respond</td>
+                        </tr>
+                    </table>
+                    <p>
+                        Let's try it,
+                        <pre>
+    var jsonObject = {id:3,name:"majidai"};
+    return app.respond.json(jsonObject);
+    // or
+    // just return json object
+    return jsonObject;
+    </pre>
+                    </p>
+                    <p class="strong">Returning Json Object will respond the content as JSON.</p>
+                </div>
+            </div>
+
+            <div id="response_redirect">
+                <div class="row">
+                    <h2>Redirect</h2>
+                    <div class="code">
+                        app.respond.redirect - &lt;url&gt;
+                    </div>
+                    This method will redirect to given url
+                    <table>
+                        <tr>
+                            <th>parameter</th>
+                            <th>type</th>
+                            <th>description</th>
+                        </tr>
+                        <tr>
+                            <td>url</td>
+                            <td>string</td>
+                            <td>url to redirect</td>
+                        </tr>
+                    </table>
+                    <p>
+                        Let's try it,
+                        <pre>
+// lets redirect to somewhere 
+return app.respond.redirect("./somewhere");
+</pre>
+                    </p>
+                    <p class="strong"></p>
+                </div>
+            </div>
+
+            <div id="native_request">
+                <div class="row">
+                    <h2>Node's http module's request method</h2>
+                    <div class="code">
+                        app.native.requst -
+                    </div>
+                    This method will return the node's http modules's request object.
+                    It will help you to access to everything related to request.
+                    <p>
+                        Let's try it,
+                        <pre>
+// get native request object
+var request = app.native.request();
+// access to 
+request.SOME_METHODS....
+</pre>
+                    </p>
+                    <p class="strong"></p>
+                </div>
+            </div>
+
+            <div id="native_response">
+                <div class="row">
+                    <h2>Node's http module's response method</h2>
+                    <div class="code">
+                        app.native.response -
+                    </div>
+                    This method will return the node's http modules's response object.
+                    It will help you to access to everything related to response.
+                    <p>
+                        Let's try it,
+                        <pre>
+// get native response object
+var response = app.native.response();
+// access to 
+response.SOME_METHODS....
+</pre>
+                    </p>
+                    <p class="strong"></p>
+                </div>
+            </div>
+
+            <div id="authentication_triggerLoginCheck">
+                <div class="row">
+                    <h2>Authentication - trigger login check</h2>
+                    <div class="code">
+                        app.triggerLoginCheck -
+                    </div>
+                    This method works with mustBeLoggedIn method.
+                    If user access to a page having mustBeLoggedIn before accessing to a page having triggerLoginCheck,
+                    then the user will not be able to see the contents below mustBeLoggedIn.
+                    After user is authenticated call this function otherwise , mustBeLoggedIn wont work.
+                    This function will regenrate session id automatically.
+                    <p>
+                        Let's try it,
+                        <pre>
+// login page
+server.post("/login", function (app) {
+    // get post data
+    var postParams = app.data.postParams();
+    
+    // get login id (form input name=login_id)
+    var userId = postParams.login_id;
+    
+    // get login password (form input name=login_pass)
+    var userPass = postParams.login_pass"";
+    
+    // check user id & pass (user authentication)
+    var isLogged = 1;
+    
+    if (isLogged){
+        // trigger login check
+        app.triggerLoginCheck();
+
+        // remember user id 
+        app.session.put("user_id", userId);
+
+        // redirect to /home
+        return app.respond.redirect("/home");
+    }
+    
+    // unauthorized login
+    return app.respond.redirect("/");
+});
+</pre>
+                    </p>
+                    <p class="strong"></p>
+                </div>
+            </div>
+
+            <div id="authentication_mustBeLoggedIn">
+                <div class="row">
+                    <h2>Authentication - validate user</h2>
+                    <div class="code">
+                        app.mustBeLoggedIn - &lt;url&gt;
+                    </div>
+                    This method works with triggerLoginCheck method.
+                    After user is authenticated call triggerLoginCheck method. And for the pages where
+                    you want to give access to only logged user, call mustBeLoggedIn method at the very first.
+                    <table>
+                        <tr>
+                            <th>parameter</th>
+                            <th>type</th>
+                            <th>description</th>
+                        </tr>
+                        <tr>
+                            <td>url</td>
+                            <td>string</td>
+                            <td>url to redirect if the user is not logged</td>
+                        </tr>
+                    </table>
+                    <p>
+                        Let's try it,
+                        <pre>
+// authorized user's page
+server.get("/membership", app => {
+    // triggerLoginCheck should be called before otherwise it will always redirect to given url "./"
+    app.mustBeLoggedIn("./");
+    
+    // do some stuffs
+
+    // return data for logged users only
+    return { name: "adfa", dasdf: 323 };
+});
+</pre>
+                    </p>
+                    <p class="strong"></p>
+                </div>
+            </div>
+
+
+
+
+
+
+
+        </div>
+    </div>
+
+    <script src="assets/js/majidai.js"></script>
+</body>
+
+</html>
