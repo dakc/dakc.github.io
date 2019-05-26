@@ -1040,7 +1040,7 @@ server.post("/login", function (app) {
                 <div class="row">
                     <h2>Authentication - validate user</h2>
                     <div class="code">
-                        app.mustBeLoggedIn - &lt;url&gt;
+                        app.mustBeLoggedIn - &lt;param&gt;
                     </div>
                     This method works with triggerLoginCheck method.
                     After user is authenticated call triggerLoginCheck method. And for the pages where
@@ -1053,8 +1053,28 @@ server.post("/login", function (app) {
                         </tr>
                         <tr>
                             <td>url</td>
+                            <td>object</td>
+                            <td>object with key url and value to redirect if the user is not logged</td>
+                        </tr>
+                        <tr>
+                            <th>parameter</th>
+                            <th>type</th>
+                            <th>description</th>
+                        </tr>
+                        <tr>
+                            <td>msg</td>
                             <td>string</td>
-                            <td>url to redirect if the user is not logged</td>
+                            <td>response message if the user is not logged</td>
+                        </tr>
+                        <tr>
+                            <th>parameter</th>
+                            <th>type</th>
+                            <th>description</th>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td>without any parameter it will response with unauthorized access.</td>
                         </tr>
                     </table>
                     <p>
@@ -1062,9 +1082,16 @@ server.post("/login", function (app) {
                         <pre>
 // authorized user's page
 server.get("/membership", app => {
+    // redirect if not logged user
     // triggerLoginCheck should be called before otherwise it will always redirect to given url "./"
-    app.mustBeLoggedIn("./");
+    if (!app.mustBeLoggedIn({url:"./"})) return;
     
+    // or send some messages
+    if (!app.mustBeLoggedIn("some messages as string")) return;
+
+    // or without any parameters (it will return 401 with unauthorized access message)
+    if (!app.mustBeLoggedIn()) return;
+
     // do some stuffs
 
     // return data for logged users only
