@@ -30,6 +30,7 @@
                             <li><i></i><a href="?#ab_test">ab test</a></li>
                             <li><i></i><a href="?#install">install</a></li>
                             <li><i></i><a href="?#setup">setup</a></li>
+                            <li><i></i><a href="?#docker">docker</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -375,6 +376,40 @@ server.start();
                     </pre>
                 </div>
             </div>
+
+
+            <div id="docker">
+                <div class="row">
+                    <h2>Docker</h2>
+                    Let's pull majidai image.
+<pre>
+docker pull dakc/majidai
+</pre>
+
+                create container with name majidai and run on background.
+<pre>
+docker run -d -p 8000:80 --name majidai dakc/majidai
+</pre>
+
+                    Lets watch log.
+<pre>
+docker logs majidai -f
+</pre>
+                    <p>
+                        Open Browser and access to access to http://localhost:8000/.<br>
+                        We will be seeing client information in console.
+                    </p>
+                    <p>We can open majidai container in interactive mode through following command.</p>
+<pre>
+docker exec -it majidai sh
+</pre>
+                    <p>
+                        We will be jumped to /data work directory where there is log folder and server.js file.
+                        We will need just <em>One File</em> to create web app. See server.js for refrerence.
+                    </p>
+                </div>
+            </div>
+
 
             <div id="log_error">
                 <div class="row">
@@ -1040,7 +1075,7 @@ server.post("/login", function (app) {
                 <div class="row">
                     <h2>Authentication - validate user</h2>
                     <div class="code">
-                        app.mustBeLoggedIn - &lt;param&gt;
+                        app.mustBeLoggedIn - &lt;param&gt;?
                     </div>
                     This method works with triggerLoginCheck method.
                     After user is authenticated call triggerLoginCheck method. And for the pages where
