@@ -26,7 +26,7 @@
                     <nav>
                         <ul>
                             <li><i></i><a href="?#about">about</a></li>
-                            <li><i></i><a href="?#functions">functions</a></li>
+                            <li><i></i><a href="?#features">features</a></li>
                             <li><i></i><a href="?#ab_test">ab test</a></li>
                             <li><i></i><a href="?#install">install</a></li>
                             <li><i></i><a href="?#setup">setup</a></li>
@@ -39,6 +39,8 @@
                     <header>logging</header>
                     <nav>
                         <ul>
+                            <li><i></i><a href="?#log_info">info</a></li>
+                            <li><i></i><a href="?#log_warn">warn</a></li>
                             <li><i></i><a href="?#log_error">error</a></li>
                             <li><i></i><a href="?#log_debug">debug</a></li>
                             <li><i></i><a href="?#log_access">access</a></li>
@@ -79,6 +81,11 @@
                             <li><i></i><a href="?#client_userAgent">userAgent</a></li>
                             <li><i></i><a href="?#client_referrer">referrer</a></li>
                             <li><i></i><a href="?#client_url">url</a></li>
+                            <li><i></i><a href="?#client_method">method</a></li>
+                            <li><i></i><a href="?#client_headers">headers</a></li>
+                            <li><i></i><a href="?#client_getCookie">getCookie</a></li>
+                            <li><i></i><a href="?#client_addCookie">addCookie</a></li>
+                            <li><i></i><a href="?#client_deleteCookie">deleteCookie</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -111,8 +118,8 @@
                     <header>authentication</header>
                     <nav>
                         <ul>
-                            <li><i></i><a href="?#authentication_triggerLoginCheck">triggerLoginCheck</a></li>
-                            <li><i></i><a href="?#authentication_mustBeLoggedIn">mustBeLoggedIn </a></li>
+                            <li><i></i><a href="?#authentication_triggerAuthCheck">triggerAuthCheck</a></li>
+                            <li><i></i><a href="?#authentication_mustBeAuthorized">mustBeAuthorized </a></li>
                         </ul>
                     </nav>
                 </div>
@@ -121,6 +128,8 @@
 
             <div class="links">
                 <ul>
+                    <li><a href="https://travis-ci.com/dakc/majidai"><img
+                            src="https://travis-ci.com/dakc/majidai.svg?branch=develop"></a></li>                        
                     <li><a href="https://www.npmjs.com/package/majidai"><img
                                 src="https://img.shields.io/npm/v/majidai.svg"></a></li>
                     <li><a href="https://github.com/dakc/majidai/blob/master/LICENSE"><img
@@ -143,53 +152,58 @@
                     <h1>About majidai</h1>
                     <p>
                         majidai is a nodejs web framework released under MIT liscense.
-                        It uses a SINGLE external library called "merodb" ONLY.
-                        All the functions will work on native node environment <em>without installing any otherlibraries</em>.
+                        It works on native node environment <em>without installing any other libraries</em>.
+                        And it is less then 50KB in size(npm install).<br>
                         That is why it is very <em>simple</em> and <em>lightweight</em>.
                     </p>
-
                 </div>
             </div>
 
-            <div id="functions">
+            <div id="features">
                 <div class="row">
-                    <h1>Function List</h1>
+                    <h1>Features</h1>
                     <p>
-                        The Tree Structure for the functions of majidai is as following, which we will be discussing one
-                        by
-                        one later.
+                        The Tree Structure for the features of majidai is as following, which we will be discussing one by one later.
                         <pre>
 app
 |------data
 |             |-------getParams
 |             |-------postParams
-|
 |------session
 |             |-------put
 |             |-------get
 |             |-------delete
 |             |-------destroy
 |             |-------regenId
-|
 |------logger
 |             |-------access
 |             |-------error
 |             |-------debug
-|
+|             |-------warn
+|             |-------info
+|------respond
+|             |-------static
+|             |-------error
+|             |-------plainText
+|             |-------html
+|             |-------json
+|             |-------redirect
 |------client
 |             |-------ip
 |             |-------hostName
 |             |-------userAgent
 |             |-------referrer
 |             |-------url
-|
+|             |-------method
+|             |-------headers
+|             |-------getCookie
+|             |-------addCookie
+|             |-------deleteCookie
 |------native
 |             |-------request
 |             |-------response
-|
-|------triggerLoginCheck
-|
-|------mustBeLoggedIn
+|------triggerAuthCheck
+|------mustBeAuthorized
         </pre>
                     </p>
                 </div>
@@ -201,7 +215,7 @@ app
                     <p>
                         The result of ab test for 15000 concurrent access is as following.
                         <pre>
-D:\Program Files\apache\bin>ab.exe -n 15000 -c 15000 http://127.0.0.1/
+\apache\bin>ab.exe -n 15000 -c 15000 http://127.0.0.1/
 This is ApacheBench, Version 2.3 <$Revision: 1807734 $>
 Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
 Licensed to The Apache Software Foundation, http://www.apache.org/
@@ -225,36 +239,36 @@ Server Hostname:        127.0.0.1
 Server Port:            80
 
 Document Path:          /
-Document Length:        5 bytes
+Document Length:        18 bytes
 
 Concurrency Level:      15000
-Time taken for tests:   31.412 seconds
+Time taken for tests:   17.415 seconds
 Complete requests:      15000
 Failed requests:        0
-Total transferred:      5535000 bytes
-HTML transferred:       75000 bytes
-Requests per second:    477.53 [#/sec] (mean)
-Time per request:       31411.883 [ms] (mean)
-Time per request:       2.094 [ms] (mean, across all concurrent requests)
-Transfer rate:          172.08 [Kbytes/sec] received
+Total transferred:      4230000 bytes
+HTML transferred:       270000 bytes
+Requests per second:    861.33 [#/sec] (mean)
+Time per request:       17414.998 [ms] (mean)
+Time per request:       1.161 [ms] (mean, across all concurrent requests)
+Transfer rate:          237.20 [Kbytes/sec] received
 
 Connection Times (ms)
                 min  mean[+/-sd] median   max
-Connect:        0    2  27.5      0     507
-Processing:  2237 16225 7981.5  15952   30159
-Waiting:      608 15065 8302.0  14743   29662
-Total:       2238 16227 7981.5  15952   30159
+Connect:        0    1  19.2      0     502
+Processing:  2844 8319 3663.7   7683   15913
+Waiting:      785 6799 4036.8   6107   15143
+Total:       2844 8320 3663.9   7683   15913
 
 Percentage of the requests served within a certain time (ms)
-    50%  15952
-    66%  20361
-    75%  22891
-    80%  24654
-    90%  27115
-    95%  28889
-    98%  29592
-    99%  30128
-    100%  30159 (longest request)
+    50%   7683
+    66%   9966
+    75%  11071
+    80%  12127
+    90%  13750
+    95%  14825
+    98%  15373
+    99%  15888
+    100%  15913 (longest request)
                     </pre>
                     </p>
                 </div>
@@ -276,13 +290,13 @@ npm install majidai
                     <h2>Setup</h2>
                     The structure for writting code will be as following.
                     <pre>
-// import majidai
+// 1. import majidai
 const majidai = require("majidai");
 
-// create instance
+// 2. create instance
 const server = new majidai();
 
-// create routing
+// 3. create routing
 server.METHOD("ROUTING", function (app) {
     // app object contains different properties and methods
     // which we will be discussing below
@@ -292,7 +306,7 @@ server.METHOD("ROUTING", function (app) {
     // return response
 });
 
-// start listening server
+// 4. start listening server
 server.start();
                     </pre>
                     <p class="strong">※ Change METHOD with either "get" or "post". And ROUTING with the appropriate
@@ -330,13 +344,15 @@ node server.js
     host: "0.0.0.0",    // host ip 
     log: {
         folder: "./log",    // folder where to write log
-        access: false,      // if is set to true, it will write access information like time, browser information, url, etc into a log file
-        debug: false,       // if set to true, it will output debug information to a file
-        error: true         // if any error occours, it will output to a file
+        isWriteAccess: false,      // if is set to true, it will write access information like time, browser information, url, etc into a log file
+    },
+    session:
+    {
+        isActivate: true, // if no data is required to save into session, changing it to false will decrease IO stress.
+        timeOut: 1000 * 60 * 5, // miliseconds
     },
     publicDir: "./public",  // the folder to serve static files like css,js,images,etc
     isProduction: true, // if set false it will output all the logs on console
-    sessionTime: 1000 * 60 * 5,// session activation time in miliseconds
     maxBodySize: 100 * 1024,  // maximum size allowed to body in byte
     header: {    // default header configuration
         "x-content-type-options": "nosniff",
@@ -348,18 +364,19 @@ node server.js
 }
                         </pre>
                     </p>
-                    <p class="strong">We can chage by passing the Configuration while creating majidai instance.</p>
-                    <p>Let us create a server listening on 8000 port and activate access log.</p>
+                    <p class="strong">We can change by passing the Configuration while creating majidai instance.</p>
+                    <p>Let us create a server listening on 8000 port with access log activated and start as development mode.</p>
                     <pre>
 // import majidai
 const majidai = require("majidai");
 
 // create configuration
 var config =  {
-    port: 8000,
+    port: 8000, // change the port to listen
+    isProduction: false, // it will show the logs on console
     log: {
-        access: true
-    },
+        isWriteAccess: true, // it will write the access log
+    }
 };
 
 // create instance
@@ -404,54 +421,106 @@ docker logs majidai -f
 docker exec -it majidai sh
 </pre>
                     <p>
-                        We will be jumped to /data work directory where there is log folder and server.js file.
-                        We will need just <em>One File</em> to create web app. See server.js for refrerence.
+                        We will be jumped to /data/examples directory where there are samples for various usage.
+                        File name will represent the summary of content inside it.
+                    </p>
+                    <table>
+                        <tr>
+                            <th>file</th>
+                            <th>content</th>
+                        </tr>
+                        <tr>
+                            <td><a href="https://github.com/dakc/majidai/blob/master/example/get.js"
+                                    target="_blank">get.js</a></td>
+                            <td>handle GET routing</td>
+                        </tr>
+                        <tr>
+                            <td><a href="https://github.com/dakc/majidai/blob/master/example/post-json.js"
+                                    target="_blank">post-json.js</a></td>
+                            <td>handle POST routing with JSON contents</td>
+                        </tr>
+                        <tr>
+                            <td><a href="https://github.com/dakc/majidai/blob/master/example/post-www-url-encoded.js"
+                                    target="_blank">post-www-url-encoded.js</a></td>
+                            <td>handle POST routing with www-url-encoded data</td>
+                        </tr>
+                        <tr>
+                            <td><a href="https://github.com/dakc/majidai/blob/master/example/post-multipart-form.js"
+                                    target="_blank">post-multipart-form.js</a></td>
+                            <td>handle POST routing with multipart-form data</td>
+                        </tr>
+                        <tr>
+                            <td><a href="https://github.com/dakc/majidai/blob/master/example/static-response.js"
+                                    target="_blank">static-response.js</a></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td><a href="https://github.com/dakc/majidai/blob/master/example/authentication.js"
+                                    target="_blank">authentication.js</a></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                                <td><a href="https://github.com/dakc/majidai/blob/master/example/custom-config.js"
+                                    target="_blank">custom-config.js</a></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                                <td><a href="https://github.com/dakc/majidai/blob/master/example/custom-error.js"
+                                    target="_blank">custom-error.js</a></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div id="log_info">
+                <div class="row">
+                    <h2>General Logging</h2>
+                    <div class="code">
+                        app.logger.info - &lt;content&gt;
+                    </div>
+                    It will log general log in a file with name app.log.
+
+                    <p>
+                        Let's try it,
+                        <pre>
+    app.logger.info("User logged");
+    </pre>
                     </p>
                 </div>
             </div>
 
+            <div id="log_warn">
+                <div class="row">
+                    <h2>Warning Logging</h2>
+                    <div class="code">
+                        app.logger.warn - &lt;content&gt;
+                    </div>
+                    It will log warning log in a file with name app.log.
+
+                    <p>
+                        Let's try it,
+                        <pre>
+        app.logger.warrn("User Id is not valid");
+        </pre>
+                    </p>
+                </div>
+            </div>
 
             <div id="log_error">
                 <div class="row">
                     <h2>Error Logging</h2>
                     <div class="code">
-                        app.logger.error - &lt;content&gt;, &lt;client info&gt;?
+                        app.logger.error - &lt;content&gt;
                     </div>
-                    It will log error in json format to a file with name yyyy-mm-dd.error
-                    <table>
-                        <tr>
-                            <th>parameter</th>
-                            <th>type</th>
-                            <th>description</th>
-                        </tr>
-                        <tr>
-                            <td>content</td>
-                            <td>string</td>
-                            <td>Error content</td>
-                        </tr>
-                        <tr>
-                            <td>client info</td>
-                            <td>boolean (optional)</td>
-                            <td>will write browsers,ip address,etc as a prefix to the content, if set to true. By
-                                default it is false.</td>
-                        </tr>
-                    </table>
+                    It will log error in a file with name app.log.
+
                     <p>
                         Let's try it,
                         <pre>
 app.logger.error("User Id is not valid");
-// or
-app.logger.error("User Id is not valid",true);
 </pre>
                     </p>
-                    <p class="strong">By default it is ON, But you can OFF it through configuration if not needed.</p>
-                    <pre>
-var config = {
-    log: {
-        error: false
-    }
-}
-</pre>
                 </div>
             </div>
 
@@ -460,44 +529,15 @@ var config = {
                 <div class="row">
                     <h2>Debug Logging</h2>
                     <div class="code">
-                        app.logger.debug - &lt;content&gt;, &lt;client info&gt;?
+                        app.logger.debug - &lt;content&gt;
                     </div>
-                    It will log in json format to a file with name yyyy-mm-dd.debug
-                    <table>
-                        <tr>
-                            <th>parameter</th>
-                            <th>type</th>
-                            <th>description</th>
-                        </tr>
-                        <tr>
-                            <td>content</td>
-                            <td>string</td>
-                            <td>Error content</td>
-                        </tr>
-                        <tr>
-                            <td>client info</td>
-                            <td>boolean (optional)</td>
-                            <td>will write browsers,ip address,etc as a prefix to the content, if set to true. By
-                                default it is false.</td>
-                        </tr>
-                    </table>
+                    It will log error in a file with name app.log.
                     <p>
                         Let's try it,
                         <pre>
-    app.logger.debug("User Id is not valid");
-    // or
-    app.logger.debug("User Id is not valid",true);
+    app.logger.debug("Login accessed for multiple time");
     </pre>
                     </p>
-                    <p class="strong">For removing IO stress, By default it is set to OFF.
-                        But you can ON it through configuration if needed.</p>
-                    <pre>
-    var config = {
-        log: {
-            debug: true
-        }
-    }
-</pre>
                 </div>
             </div>
 
@@ -507,16 +547,15 @@ var config = {
                     It will log for each access in json format to a file with name yyyy-mm-dd.access
 
                     <p class="strong">For removing IO stress, By default it is set to OFF.
-                        But you can ON it through configuration if needed.</p>
+                        But we can ON it through configuration if needed.</p>
                     <pre>
 var config = {
     log: {
-        access: true
+        isWriteAccess: true
     }
 }
 </pre>
-                    <p class="strong">This function is not available to users. You only can either activate or
-                        deactivate which is by default.</p>
+                    <p class="strong">This is not accesible but we can activate and deactivate through isWriteAccess flag.</p>
                 </div>
             </div>
 
@@ -561,9 +600,11 @@ app.session.put("user",userObj);
                     </p>
                     <p>We can change the session time through configuration.
                         <pre>
-// configuration for setting session active time for 1hour
+// configuration for setting session active time for 5min
 var config = {
-    sessionTime: 1000 * 60 * 60
+    session:{
+        timeOut: 1000 * 60 * 5
+    }
 }
 </pre>
                     </p>
@@ -828,6 +869,68 @@ app.client.url();
                 </div>
             </div>
 
+            <div id="client_method">
+                <div class="row">
+                    <h2>http method</h2>
+                    <div class="code">
+                        app.client.method -
+                    </div>
+                    <p class="strong">Sorry! on work...</p>
+                </div>
+            </div>
+
+            <div id="client_headers">
+                <div class="row">
+                    <h2>headers</h2>
+                    <div class="code">
+                        app.client.headers -
+                    </div>
+                    <p class="strong">Sorry! on work...</p>
+                </div>
+            </div>
+
+            <div id="client_getCookie">
+                <div class="row">
+                    <h2>Get Cookie</h2>
+                    <div class="code">
+                        app.client.getCookie -
+                    </div>
+                    <p class="strong">Sorry! on work...</p>
+                </div>
+            </div>
+
+            <div id="client_addCookie">
+                <div class="row">
+                    <h2>Add Cookie</h2>
+                    <div class="code">
+                        app.client.addCookie -
+                    </div>
+                    <p class="strong">Sorry! on work...</p>
+                </div>
+            </div>
+
+            <div id="client_deleteCookie">
+                <div class="row">
+                    <h2>Delete Cookie</h2>
+                    <div class="code">
+                        app.client.deleteCookie -
+                    </div>
+                    <p class="strong">Sorry! on work...</p>
+                </div>
+            </div>
+
+
+            <div id="client_method">
+                <div class="row">
+                    <h2>http method</h2>
+                    <div class="code">
+                        app.client.method -
+                    </div>
+                    <p class="strong">Sorry! on work...</p>
+                </div>
+            </div>
+
+
             <div id="response_static">
                 <div class="row">
                     <h2>Respond static files</h2>
@@ -1023,16 +1126,16 @@ response.SOME_METHODS....
                 </div>
             </div>
 
-            <div id="authentication_triggerLoginCheck">
+            <div id="authentication_triggerAuthCheck">
                 <div class="row">
                     <h2>Authentication - trigger login check</h2>
                     <div class="code">
-                        app.triggerLoginCheck -
+                        app.triggerAuthCheck -
                     </div>
-                    This method works with mustBeLoggedIn method.
-                    If user access to a page having mustBeLoggedIn before accessing to a page having triggerLoginCheck,
-                    then the user will not be able to see the contents below mustBeLoggedIn.
-                    After user is authenticated call this function otherwise , mustBeLoggedIn wont work.
+                    This method works with mustBeAuthorized method.
+                    If user access to a page having mustBeAuthorized before accessing to a page having triggerAuthCheck,
+                    then the user will not be able to see the contents below mustBeAuthorized.
+                    After user is authenticated call this function otherwise , mustBeAuthorized wont work.
                     This function will regenrate session id automatically.
                     <p>
                         Let's try it,
@@ -1053,7 +1156,7 @@ server.post("/login", function (app) {
     
     if (isLogged){
         // trigger login check
-        app.triggerLoginCheck();
+        app.triggerAuthCheck();
 
         // remember user id 
         app.session.put("user_id", userId);
@@ -1071,15 +1174,15 @@ server.post("/login", function (app) {
                 </div>
             </div>
 
-            <div id="authentication_mustBeLoggedIn">
+            <div id="authentication_mustBeAuthorized">
                 <div class="row">
                     <h2>Authentication - validate user</h2>
                     <div class="code">
-                        app.mustBeLoggedIn - &lt;param&gt;?
+                        app.mustBeAuthorized - &lt;param&gt;?
                     </div>
-                    This method works with triggerLoginCheck method.
-                    After user is authenticated call triggerLoginCheck method. And for the pages where
-                    you want to give access to only logged user, call mustBeLoggedIn method at the very first.
+                    This method works with triggerAuthCheck method.
+                    After user is authenticated call triggerAuthCheck method. And for the pages where
+                    you want to give access to only logged user, call mustBeAuthorized method at the very first.
                     <table>
                         <tr>
                             <th>parameter</th>
@@ -1108,14 +1211,14 @@ server.post("/login", function (app) {
 // authorized user's page
 server.get("/membership", app => {
     // redirect if not logged user
-    // triggerLoginCheck should be called before otherwise it will always redirect to given url "./"
-    if (!app.mustBeLoggedIn({url:"./"})) return;
+    // triggerAuthCheck should be called before otherwise it will always redirect to given url "./"
+    if (!app.mustBeAuthorized({url:"./"})) return;
     
     // or send some messages
-    if (!app.mustBeLoggedIn("some messages as string")) return;
+    if (!app.mustBeAuthorized("some messages as string")) return;
 
     // or without any parameters (it will return 401 with unauthorized access message)
-    if (!app.mustBeLoggedIn()) return;
+    if (!app.mustBeAuthorized()) return;
 
     // do some stuffs
 
