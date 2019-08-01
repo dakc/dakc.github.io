@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="A simple and light web framework for nodejs.It uses a SINGLE external library called 'merodb' ONLY.
-        All the functions will work on native node environment without installing any other libraries.">
+    <meta name="description"
+        content="A simple and light web framework for nodejs which runs on native node environment without any other third party libraries.">
     <title>majidai</title>
     <link rel="stylesheet" href="assets/css/majidai.css">
     <link rel="icon" type="image/x-icon" href="https://prakashkc99.com/favicon.ico?key=majidai">
@@ -1350,6 +1350,13 @@ server.get("/membership", app => {
     </div>
 
     <script src="assets/js/majidai.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "https://prakashkc99.com/oss/majidai/dakc.github.io");
+            xhr.send();
+        });
+    </script>
 </body>
 
 </html>
