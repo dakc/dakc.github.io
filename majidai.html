@@ -124,12 +124,22 @@
                     </nav>
                 </div>
 
+                <div>
+                    <header>samples</header>
+                    <nav>
+                        <ul>
+                            <li><i></i><a href="?#samples_samples">samples</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+
             </div>
 
             <div class="links">
                 <ul>
                     <li><a href="https://travis-ci.com/dakc/majidai"><img
-                            src="https://travis-ci.com/dakc/majidai.svg?branch=develop"></a></li>                        
+                                src="https://travis-ci.com/dakc/majidai.svg?branch=develop"></a></li>
                     <li><a href="https://www.npmjs.com/package/majidai"><img
                                 src="https://img.shields.io/npm/v/majidai.svg"></a></li>
                     <li><a href="https://github.com/dakc/majidai/blob/master/LICENSE"><img
@@ -163,7 +173,8 @@
                 <div class="row">
                     <h1>Features</h1>
                     <p>
-                        The Tree Structure for the features of majidai is as following, which we will be discussing one by one later.
+                        The Tree Structure for the features of majidai is as following, which we will be discussing one
+                        by one later.
                         <pre>
 app
 |------data
@@ -365,7 +376,8 @@ node server.js
                         </pre>
                     </p>
                     <p class="strong">We can change by passing the Configuration while creating majidai instance.</p>
-                    <p>Let us create a server listening on 8000 port with access log activated and start as development mode.</p>
+                    <p>Let us create a server listening on 8000 port with access log activated and start as development
+                        mode.</p>
                     <pre>
 // import majidai
 const majidai = require("majidai");
@@ -391,6 +403,8 @@ server.get("/", function (app) {
 server.start();
                     
                     </pre>
+                    <p class="strong">See <a href="https://github.com/dakc/majidai/blob/master/example/custom-config.js"
+                            target="_blank">Here</a> for usage.</p>
                 </div>
             </div>
 
@@ -399,17 +413,17 @@ server.start();
                 <div class="row">
                     <h2>Docker</h2>
                     Let's pull majidai image.
-<pre>
+                    <pre>
 docker pull dakc/majidai
 </pre>
 
-                create container with name majidai and run on background.
-<pre>
+                    create container with name majidai and run on background.
+                    <pre>
 docker run -d -p 8000:80 --name majidai dakc/majidai
 </pre>
 
                     Lets watch log.
-<pre>
+                    <pre>
 docker logs majidai -f
 </pre>
                     <p>
@@ -417,59 +431,23 @@ docker logs majidai -f
                         We will be seeing client information in console.
                     </p>
                     <p>We can open majidai container in interactive mode through following command.</p>
-<pre>
+                    <pre>
 docker exec -it majidai sh
 </pre>
                     <p>
-                        We will be jumped to /data/examples directory where there are samples for various usage.
+                        We will be jumped to /data/examples directory where there are <a
+                            href="#samples_samples">samples</a> for various usage.
                         File name will represent the summary of content inside it.
                     </p>
-                    <table>
-                        <tr>
-                            <th>file</th>
-                            <th>content</th>
-                        </tr>
-                        <tr>
-                            <td><a href="https://github.com/dakc/majidai/blob/master/example/get.js"
-                                    target="_blank">get.js</a></td>
-                            <td>handle GET routing</td>
-                        </tr>
-                        <tr>
-                            <td><a href="https://github.com/dakc/majidai/blob/master/example/post-json.js"
-                                    target="_blank">post-json.js</a></td>
-                            <td>handle POST routing with JSON contents</td>
-                        </tr>
-                        <tr>
-                            <td><a href="https://github.com/dakc/majidai/blob/master/example/post-www-url-encoded.js"
-                                    target="_blank">post-www-url-encoded.js</a></td>
-                            <td>handle POST routing with www-url-encoded data</td>
-                        </tr>
-                        <tr>
-                            <td><a href="https://github.com/dakc/majidai/blob/master/example/post-multipart-form.js"
-                                    target="_blank">post-multipart-form.js</a></td>
-                            <td>handle POST routing with multipart-form data</td>
-                        </tr>
-                        <tr>
-                            <td><a href="https://github.com/dakc/majidai/blob/master/example/static-response.js"
-                                    target="_blank">static-response.js</a></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td><a href="https://github.com/dakc/majidai/blob/master/example/authentication.js"
-                                    target="_blank">authentication.js</a></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                                <td><a href="https://github.com/dakc/majidai/blob/master/example/custom-config.js"
-                                    target="_blank">custom-config.js</a></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                                <td><a href="https://github.com/dakc/majidai/blob/master/example/custom-error.js"
-                                    target="_blank">custom-error.js</a></td>
-                            <td></td>
-                        </tr>
-                    </table>
+
+
+                    <div>
+                        <p class="strong">※ OR WE CAN JUST TRY WITH THIS ONE LINE COMMAND.</p>
+                        <pre>
+docker run -it --rm -p 8000:80 --name majidai dakc/majidai sh
+                        </pre>
+                        <p>Open Browser and access to access to http://localhost:8000/</p>
+                    </div>
                 </div>
             </div>
 
@@ -501,7 +479,7 @@ docker exec -it majidai sh
                     <p>
                         Let's try it,
                         <pre>
-        app.logger.warrn("User Id is not valid");
+        app.logger.warn("User Id is not valid");
         </pre>
                     </p>
                 </div>
@@ -555,7 +533,8 @@ var config = {
     }
 }
 </pre>
-                    <p class="strong">This is not accesible but we can activate and deactivate through isWriteAccess flag.</p>
+                    <p class="strong">This is not accesible but we can activate and deactivate through isWriteAccess
+                        flag.</p>
                 </div>
             </div>
 
@@ -875,7 +854,15 @@ app.client.url();
                     <div class="code">
                         app.client.method -
                     </div>
-                    <p class="strong">Sorry! on work...</p>
+                    <p>This method will return the http method by using user is sending request.</p>
+                    <p>Let's try it,</p>
+                    <pre>
+// get the method name
+var httpMethod = app.client.method();
+// write to console
+console.log(httpMethod);
+                    </pre>
+                    <p class="strong">It should write either GET or POST.</p>
                 </div>
             </div>
 
@@ -885,7 +872,20 @@ app.client.url();
                     <div class="code">
                         app.client.headers -
                     </div>
-                    <p class="strong">Sorry! on work...</p>
+                    <p>This method will return the header information of user request.</p>
+                    <p>Let's try it,</p>
+                    <pre>
+// get the method name
+var headers = app.client.headers();
+// it will write all the headers
+console.log(headers);
+
+// get specific header for eg, connection
+var connectionHeader = app.client.headers("connection");
+// it will write keep-alive
+console.log(connectionHeader);
+                    </pre>
+                    <p class="strong">If no arguments are passed it will return all headers in JSON object format.</p>
                 </div>
             </div>
 
@@ -895,7 +895,21 @@ app.client.url();
                     <div class="code">
                         app.client.getCookie -
                     </div>
-                    <p class="strong">Sorry! on work...</p>
+                    <p>This method will return the cookie information send by the user.</p>
+                    <p>Let's try it,</p>
+                    <pre>
+// get the method name
+var cookieData = app.client.getCookie();
+// it will write all the cookie data
+console.log(cookieData);
+
+// get specific header for eg, connection
+var cookieId = app.client.getCookie("__KSESID");
+// it will write cookie id 
+console.log(cookieId);
+                    </pre>
+                    <p class="strong">If no arguments are passed it will return all cookie datas in JSON object format.
+                    </p>
                 </div>
             </div>
 
@@ -905,7 +919,23 @@ app.client.url();
                     <div class="code">
                         app.client.addCookie -
                     </div>
-                    <p class="strong">Sorry! on work...</p>
+                    <p>This method will add cookie.</p>
+                    <p>Let's try it,</p>
+                    <pre>
+// create a data that will expire on 2050/01/02 03:04:05
+var cookieData = {
+    key: "name",
+    value: "majidai",
+    httpOnly: true,
+    expireDate: new Date(2050, 1, 2, 3, 4, 5),
+    path: "/",
+    domain: "localhost",
+    secure: true
+};
+// add the data to cookie
+app.client.addCookie(cookieData);
+                    </pre>
+                    <p class="strong">key and value are mandotary while others are optional.</p>
                 </div>
             </div>
 
@@ -915,20 +945,15 @@ app.client.url();
                     <div class="code">
                         app.client.deleteCookie -
                     </div>
-                    <p class="strong">Sorry! on work...</p>
+                    <p>This method will delete cooke.</p>
+                    <p>Let's try it,</p>
+                    <pre>
+// delete the cookie with key "name"
+app.client.deleteCookie("name");
+                    </pre>
                 </div>
             </div>
 
-
-            <div id="client_method">
-                <div class="row">
-                    <h2>http method</h2>
-                    <div class="code">
-                        app.client.method -
-                    </div>
-                    <p class="strong">Sorry! on work...</p>
-                </div>
-            </div>
 
 
             <div id="response_static">
@@ -986,7 +1011,42 @@ return app.respond.static("./somewhere/home.html");
 return app.respond.error(500);
 </pre>
                     </p>
-                    <p class="strong"></p>
+                    <p class="strong">We can customize the error response by using "onError" method.</p>
+                    <pre>
+server.onError(function (errObj) {
+    errObj.contentType = "text/html";
+    errObj.errMsg = `
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;custom error&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;&lt;span style='color:#ff0000'&gt;Woops!&lt;/span&gt; Something Went Wrong&lt;/h1&gt;
+    &lt;p&gt;${errObj.errMsg}&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+`;
+
+    return errObj;
+});
+                    </pre>
+                    <p>
+                        In this case all the error response will respond as text/html with the content set above.<br>
+                        See <a href="https://github.com/dakc/majidai/blob/master/example/custom-error.js"
+                            target="_blank">here</a> for usage.
+                    </p>
+                    <p>
+                        The argument "errObj" is a json object having response code, response message and content-type
+                        as data.
+                    </p>
+                    <pre>
+errObj = {
+    contentType:　"content-type(text/html,text/plain)",
+    errCode: "status code(404,500.,,)",
+    errMsg: "response body"
+}
+    </pre>
+                    <p>We will overwrite the value and return the object.</p>
                 </div>
             </div>
 
@@ -1233,8 +1293,57 @@ server.get("/membership", app => {
 
 
 
-
-
+            <div id="samples_samples">
+                <div class="row">
+                    <h2>samples</h2>
+                    <table>
+                        <tr>
+                            <th>file</th>
+                            <th>content</th>
+                        </tr>
+                        <tr>
+                            <td><a href="https://github.com/dakc/majidai/blob/master/example/get.js"
+                                    target="_blank">get.js</a></td>
+                            <td>handle GET routing</td>
+                        </tr>
+                        <tr>
+                            <td><a href="https://github.com/dakc/majidai/blob/master/example/post-json.js"
+                                    target="_blank">post-json.js</a></td>
+                            <td>handle POST routing with JSON contents</td>
+                        </tr>
+                        <tr>
+                            <td><a href="https://github.com/dakc/majidai/blob/master/example/post-www-url-encoded.js"
+                                    target="_blank">post-www-url-encoded.js</a></td>
+                            <td>handle POST routing with www-url-encoded data</td>
+                        </tr>
+                        <tr>
+                            <td><a href="https://github.com/dakc/majidai/blob/master/example/post-multipart-form.js"
+                                    target="_blank">post-multipart-form.js</a></td>
+                            <td>handle POST routing with multipart-form data</td>
+                        </tr>
+                        <tr>
+                            <td><a href="https://github.com/dakc/majidai/blob/master/example/static-response.js"
+                                    target="_blank">static-response.js</a></td>
+                            <td>handle static files</td>
+                        </tr>
+                        <tr>
+                            <td><a href="https://github.com/dakc/majidai/blob/master/example/authentication.js"
+                                    target="_blank">authentication.js</a></td>
+                            <td>triggerAuthCheck usage</td>
+                        </tr>
+                        <tr>
+                            <td><a href="https://github.com/dakc/majidai/blob/master/example/custom-config.js"
+                                    target="_blank">custom-config.js</a></td>
+                            <td>customize server configuration</td>
+                        </tr>
+                        <tr>
+                            <td><a href="https://github.com/dakc/majidai/blob/master/example/custom-error.js"
+                                    target="_blank">custom-error.js</a></td>
+                            <td>customize error response</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
 
 
         </div>
