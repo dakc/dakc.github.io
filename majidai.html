@@ -27,10 +27,11 @@
                         <ul>
                             <li><i></i><a href="?#about">about</a></li>
                             <li><i></i><a href="?#features">features</a></li>
-                            <li><i></i><a href="?#ab_test">ab test</a></li>
                             <li><i></i><a href="?#install">install</a></li>
                             <li><i></i><a href="?#setup">setup</a></li>
+                            <li><i></i><a href="?#configs">configs</a></li>
                             <li><i></i><a href="?#docker">docker</a></li>
+                            <li><i></i><a href="?#ab_test">ab test</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -163,8 +164,12 @@
                     <p>
                         majidai is a nodejs web framework released under MIT liscense.
                         It works on native node environment <em>without installing any other libraries</em>.
-                        And it is less then 50KB in size(npm install).<br>
+                        And it is less then 50KB in size.<br>
                         That is why it is very <em>simple</em> and <em>lightweight</em>.
+                    </p>
+                    <p>
+                        It is a configuration centralized webframework. 
+                        We can easily create HTTPS SERVER (including http2) by just customizing the configuration.
                     </p>
                 </div>
             </div>
@@ -220,70 +225,6 @@ app
                 </div>
             </div>
 
-            <div id="ab_test">
-                <div class="row">
-                    <h1>Apache ab Test</h1>
-                    <p>
-                        The result of ab test for 15000 concurrent access is as following.
-                        <pre>
-\apache\bin>ab.exe -n 15000 -c 15000 http://127.0.0.1/
-This is ApacheBench, Version 2.3 <$Revision: 1807734 $>
-Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
-Licensed to The Apache Software Foundation, http://www.apache.org/
-
-Benchmarking 127.0.0.1 (be patient)
-Completed 1500 requests
-Completed 3000 requests
-Completed 4500 requests
-Completed 6000 requests
-Completed 7500 requests
-Completed 9000 requests
-Completed 10500 requests
-Completed 12000 requests
-Completed 13500 requests
-Completed 15000 requests
-Finished 15000 requests
-
-
-Server Software:        majidai@1.0
-Server Hostname:        127.0.0.1
-Server Port:            80
-
-Document Path:          /
-Document Length:        18 bytes
-
-Concurrency Level:      15000
-Time taken for tests:   17.415 seconds
-Complete requests:      15000
-Failed requests:        0
-Total transferred:      4230000 bytes
-HTML transferred:       270000 bytes
-Requests per second:    861.33 [#/sec] (mean)
-Time per request:       17414.998 [ms] (mean)
-Time per request:       1.161 [ms] (mean, across all concurrent requests)
-Transfer rate:          237.20 [Kbytes/sec] received
-
-Connection Times (ms)
-                min  mean[+/-sd] median   max
-Connect:        0    1  19.2      0     502
-Processing:  2844 8319 3663.7   7683   15913
-Waiting:      785 6799 4036.8   6107   15143
-Total:       2844 8320 3663.9   7683   15913
-
-Percentage of the requests served within a certain time (ms)
-    50%   7683
-    66%   9966
-    75%  11071
-    80%  12127
-    90%  13750
-    95%  14825
-    98%  15373
-    99%  15888
-    100%  15913 (longest request)
-                    </pre>
-                    </p>
-                </div>
-            </div>
 
             <div id="install">
                 <div class="row">
@@ -347,6 +288,45 @@ node server.js
                         Now, your server will be listening at locahost with 80 port. If the port is not open then, it
                         will throw error.
                     </p>
+
+
+                    <div>
+                            <p class="strong">※ Note</p>
+                        majidai has 3 properties for handling ROUTING.
+                        <ol>
+                            <li>get</li>
+                            <li>post</li>
+                            <li>customRouting</li>
+                        </ol>
+                    </div>
+                    <div>
+                        The "get" property will listen to GET method, while "post" property will listen to POST method.
+                        The "customRouting" property will help us to listen for multiple http methods for a single routing.
+                        <p>For example, in the below example we will be able to access "home" path by both GET and POST method. </p>
+<pre>
+// import majidai
+const majidai = require("majidai");
+
+// create instance
+const server = new majidai();
+
+// create routing
+server.customRouting({method:["GET", "POST"], routing:"/home"}, function (app) {
+    return "Hello majidai";
+});
+
+// start listening server
+server.start();
+</pre>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div id="configs">
+                <div class="row">
+                    <h1>Configuration</h1>
                     <p>
                         The Default Configuration will be as following.
                         <pre>
@@ -450,6 +430,74 @@ docker run -it --rm -p 8000:80 --name majidai dakc/majidai sh
                     </div>
                 </div>
             </div>
+
+
+
+            <div id="ab_test">
+                <div class="row">
+                    <h1>Apache ab Test</h1>
+                    <p>
+                        The result of ab test for 15000 concurrent access is as following.
+                        <pre>
+\apache\bin>ab.exe -n 15000 -c 15000 http://127.0.0.1/
+This is ApacheBench, Version 2.3 <$Revision: 1807734 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 127.0.0.1 (be patient)
+Completed 1500 requests
+Completed 3000 requests
+Completed 4500 requests
+Completed 6000 requests
+Completed 7500 requests
+Completed 9000 requests
+Completed 10500 requests
+Completed 12000 requests
+Completed 13500 requests
+Completed 15000 requests
+Finished 15000 requests
+
+
+Server Software:        majidai@1.0
+Server Hostname:        127.0.0.1
+Server Port:            80
+
+Document Path:          /
+Document Length:        18 bytes
+
+Concurrency Level:      15000
+Time taken for tests:   17.415 seconds
+Complete requests:      15000
+Failed requests:        0
+Total transferred:      4230000 bytes
+HTML transferred:       270000 bytes
+Requests per second:    861.33 [#/sec] (mean)
+Time per request:       17414.998 [ms] (mean)
+Time per request:       1.161 [ms] (mean, across all concurrent requests)
+Transfer rate:          237.20 [Kbytes/sec] received
+
+Connection Times (ms)
+                min  mean[+/-sd] median   max
+Connect:        0    1  19.2      0     502
+Processing:  2844 8319 3663.7   7683   15913
+Waiting:      785 6799 4036.8   6107   15143
+Total:       2844 8320 3663.9   7683   15913
+
+Percentage of the requests served within a certain time (ms)
+    50%   7683
+    66%   9966
+    75%  11071
+    80%  12127
+    90%  13750
+    95%  14825
+    98%  15373
+    99%  15888
+    100%  15913 (longest request)
+                    </pre>
+                    </p>
+                </div>
+            </div>
+
 
             <div id="log_info">
                 <div class="row">
@@ -1350,7 +1398,7 @@ server.get("/membership", app => {
     </div>
 
     <script src="assets/js/majidai.js"></script>
-    <img src="https://prakashkc99.com/oss/majidai/dakc.github.io" >
+    <img src="https://prakashkc99.com/oss/majidai/dakc.github.io">
 </body>
 
 </html>
