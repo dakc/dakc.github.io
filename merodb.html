@@ -8,14 +8,15 @@
     <meta name="description"
         content="MeroDB is a Javascript library that helps to manipulate Javascript objects easily like a database.">
     <title>MeroDB</title>
-    <link rel="stylesheet" href="assets/css/merodb.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
     <div class="container">
         <div class="sidebar">
             <div class="personal">
-                <img src="https://prakashkc99.com/favicon.ico" alt="avatar">
+                <img src="https://prakashkc99.com/favicon.ico" alt="merodb">
                 <span>Da KC</span>
                 <span>MeroDB</span>
             </div>
@@ -103,12 +104,16 @@
                     <h2>Installation for NodeJS</h2>
                     Install the library by using following command.
                     <pre>
+<code class="javascript">
 npm install merodb
+</code>
 </pre>
                     Create MeroDB Instance
                     <pre>
+<code class="javascript">
 const MeroDB = require("merodb");
 var myDb = new MeroDB();
+</code>
 </pre>
                 </div>
             </div>
@@ -124,11 +129,13 @@ var myDb = new MeroDB();
 
                     Create MeroDB Instance
                     <pre>
+<code class="javascript">
 &lt;script&gt;
     document.addEventListener('DOMContentLoaded', function () {
         var myDb = new merodb();
     });
 &lt;/script&gt;
+</code>
 </pre>
                     Look here for <a href="https://github.com/dakc/merodb/blob/master/example.html">SAMPLE.</a>
                     (It works on almost all latest browsers.)
@@ -164,17 +171,19 @@ var myDb = new MeroDB();
                     The second parameter is optional and can be omitted.
                     "createCollection" will return false if failed, Otherwise returns true.
                     <pre>
+<code class="javascript">
 var isCreated = myDb.createCollection("continent");
 if(isCreated === false){
     console.log("Failed to create collection");
-}
+}</code>
 </pre>
 
                     It has a method called <em>getCollections</em> which will return the list of collections found in a
                     database.
                     <pre>
+<code class="javascript">
 var myCollections = myDb.getCollections();
-</pre>
+</code></pre>
                 </div>
             </div>
 
@@ -205,30 +214,33 @@ var myCollections = myDb.getCollections();
                     </table>
                     <h3>Insert Single Document</h3>
                     <pre>
+<code class="javascript">
 var data1 = {id:1,place:"Asia",color:"red"};
 var data2 = {id:3,place:"Europe",color:"green"};
 var collectionName = "continent";
 myDb.insert(collectionName,data1);
 myDb.insert(collectionName,data2);
-</pre>
+</code></pre>
 
                     <div id="activate-collection">
                         However, first parameter can be omitted if a collection is activated. To activate a collection
                         "use" method is executed.
                         <pre>
+<code class="javascript">
 myDb.use("continent");
 var data1 = {id:5,place:"Africa",color:"blue"};
 var data2 = {id:7,place:"America",color:"yellow"};
 myDb.insert(data1);
 myDb.insert(data2);
-</pre>
+</code></pre>
                         "use" & "insert" methods will return false if failed, Otherwise returns true. if second
                         parameter is passed as true while creating collection, it will automatically activate the given
                         collection.
                         <pre>
+<code class="javascript">
 myDb.createCollection("continent", true);
 myDb.insert({id:7,place:"Antartica",color:"pink"});
-</pre>
+</code></pre>
                     </div>
                     <h1>Insert Existing Object</h1>
                     <div class="code">
@@ -237,6 +249,7 @@ myDb.insert({id:7,place:"Antartica",color:"pink"});
                     </div>
                     It will create a collection named user and inserts data of myObj.
                     <pre>
+<code class="javascript">
 var myObj = [
                 {
                     "userId": 1,
@@ -263,7 +276,7 @@ var myObj = [
                 }
             ];
 myDb.loadFromJsonObject("user", myObj);
-</pre>
+</code></pre>
                 </div>
             </div>
 
@@ -298,6 +311,7 @@ myDb.loadFromJsonObject("user", myObj);
                     </table>
 
                     <pre>
+<code class="javascript">
 var searchTableString = "user";
 var searchConditionObject = { place: "Asia" };
 var resultColumnArray = ["id"];
@@ -306,7 +320,7 @@ var searchResult = myDb.find(searchTableString, searchConditionObject);
 var searchResult = myDb.find(searchTableString, searchConditionObject, resultColumnArray);
 var searchResult = myDb.find(searchConditionObject);
 var searchResult = myDb.find(searchConditionObject, resultColumnArray);
-</pre>
+</code></pre>
                     <div id="search-condition">
                         <h2><em>Search Condition</em></h2>
                         <table>
@@ -363,21 +377,24 @@ var searchResult = myDb.find(searchConditionObject, resultColumnArray);
                     </div>
                     <h3>Uses-1</h3>
                     <pre>
+<code class="javascript">
 var searchResult = myDb.find("user",{ id: { $gte: 4 } });
-</pre>
+</code></pre>
 
 
                     <h3>Uses-2</h3>
                     <pre>
+<code class="javascript">
 var searchResult = myDb.find("user", {
         $or: [{ id: 1 }, { name: "kk" }],
         salary: 15
     });
-</pre>
+</code></pre>
 
 
                     <h3>Uses-3</h3>
                     <pre>
+<code class="javascript">
 var searchResult = myDb.find({
         $or: [
             { isbn: { $gte: 2000 } },
@@ -386,7 +403,7 @@ var searchResult = myDb.find({
         name: { $ne: "df" },
         price:{$lt:5000}
     });
-</pre>
+</code></pre>
                 </div>
             </div>
 
@@ -428,6 +445,7 @@ var searchResult = myDb.find({
                     <p>if the <new value> does not contain "$set" key then all the the data of the document fulfilling
                             given condition will be replaced with the <new value> object.</p>
                     <pre>
+<code class="javascript">
 // create instance of MeroDB
 var myDb = new MeroDB();
 // create collection with name "user" and activate
@@ -444,9 +462,10 @@ console.log(newData[0], newData[1]);
 // Object {id: 1, name: "hbeauty", enroll: "2018-01-20", sex: "M", salary: 15}
 // Object {name: "tom"}
 // the result will be as following where second document is completely replaced.
-</pre>
+</code></pre>
                     If <new value> contains "$set" key then it will update the the keys set.
                         <pre>
+<code class="javascript">
 // update active collection having its documents id = 2
 myDb.update({ id: 2 }, { $set: { id: 1111, name: "tom" } });
 
@@ -456,12 +475,13 @@ console.log(newData[0], newData[1]);
 //Object {id: 1, name: "hbeauty", enroll: "2018-01-20", sex: "M", salary: 15}
 //Object {id: 1111, name: "tom", enroll: "2017-02-28", sex: "F", salary: 35}
 // only id,name were updated.
-</pre>
+</code></pre>
                         Condition is object which is exactly similar to the condition for find method.
                         <a href="?#search-condition">Search Condition</a>
 
                         <h3>Uses 1</h3>
                         <pre>
+<code class="javascript">
 var searchCondition = { id: { $lt: 2 } };
 var newData = { $set: { name: "harilarl" } };
 myDb.update(searchCondition, newData);
@@ -469,7 +489,7 @@ myDb.update(searchCondition, newData);
 // Get number of documents updated
 var updatedNumber = myDb.collAffected();
 console.log("number of updated documents is " + updatedNumber);
-</pre>
+</code></pre>
 
                 </div>
             </div>
@@ -485,6 +505,7 @@ console.log("number of updated documents is " + updatedNumber);
                     <h3>Uses 1</h3>
                     Delete from user where id is less then two.
                     <pre>
+<code class="javascript">
 var searchCondition = { id: { $lt: 2 } };
 var documentName = "user"
 var isDelete = myDb.delete(documentName, searchCondition);
@@ -495,7 +516,7 @@ if (isDelete == true) {
 // Get number of documents deleted
 var deletedNumber = myDb.collAffected();
 console.log("number of deleted documents is " + deletedNumber);
-</pre>
+</code></pre>
                 </div>
             </div>
 
@@ -509,13 +530,14 @@ console.log("number of deleted documents is " + deletedNumber);
                     It will return the number of documents existing on given collection name.
                     If no collection name is specified then it will return the active collection's row number.
                     <pre>
+<code class="javascript">
 // get document count for "user" collection
 var collectionName = "user";
 var numberRows = myDb.getDocumentCount(collectionName);
 
 // get active collection's document count
 var numberRowsActiveCollection =  myDb.getDocumentCount();
-</pre>
+</code></pre>
                 </div>
             </div>
 
@@ -528,12 +550,14 @@ var numberRowsActiveCollection =  myDb.getDocumentCount();
                     </div>
                     It will return number of documents in a collection affected after update or delete process.
                     <pre>
+<code class="javascript">
 // delete from collection user
 var searchCondition = { id: { $lt: 2 } };
 var collectionName = "user"
 var isDelete = myDb.delete(documentName, searchCondition);
 // get the number of documents deleted
 var numberRowsDeleted = myDb.getDocumentNumAffected();
+</code>
 </pre>
                 </div>
             </div>
@@ -547,8 +571,10 @@ var numberRowsDeleted = myDb.getDocumentNumAffected();
                     </div>
                     It will return the name of active collection if exist.
                     <pre>
+<code class="javascript">
 // get name of active collection
 var activeCollection = myDb.getActiveCollection();
+</code>
 </pre>
                 </div>
             </div>
@@ -563,8 +589,10 @@ var activeCollection = myDb.getActiveCollection();
                     </div>
                     It will return error content.
                     <pre>
+<code class="javascript">
 // get the error message
 var errorMessage = myDb.getError();
+</code>
 </pre>
                 </div>
             </div>
@@ -580,8 +608,10 @@ var errorMessage = myDb.getError();
                     </div>
                     It will return all the collections as array.
                     <pre>
+<code class="javascript">
 // get the names of collections existing in a database
 var arrayCollection = myDb.getCollections();
+</code>
 </pre>
                 </div>
             </div>
@@ -614,6 +644,7 @@ var arrayCollection = myDb.getCollections();
 
                     It will load the json data into a database.
                     <pre>
+<code class="javascript">
 // create data to be inserted
 let userData = [];
 userData.push({ id: 1, name: "pk", salary: 10 });
@@ -623,6 +654,7 @@ userData.push({ id: 4, name: "kk", salary: 25, sex: "M" });
 userData.push({ id: 5, name: "kk", salary: 15 });
 // load to database with collection name user
 myDb.loadFromJsonObject("user", userData);
+</code>
 </pre>
                 </div>
             </div>
@@ -638,8 +670,10 @@ myDb.loadFromJsonObject("user", userData);
                     It will output the contents of database to given file.This method <em>only works for nodejs
                         environment</em>.
                     <pre>
+<code class="javascript">
 // write contents to "my.db"
 myDb.save("./my.db");
+</code>
 </pre>
                 </div>
             </div>
@@ -657,8 +691,10 @@ myDb.save("./my.db");
                     method).
                     This method <em>only works for nodejs environment</em>.
                     <pre>
+<code class="javascript">
 // write contents to "my.db" on each change
 myDb.updateAlways("./my.db");
+</code>
 </pre>
                 </div>
             </div>
@@ -674,8 +710,11 @@ myDb.updateAlways("./my.db");
                     It will load the data from file
                     This method <em>only works for nodejs environment</em>.
                     <pre>
+<code class="javascript">
 // load from file
 myDb.loadFromFile("./my.db");
+</code>
+
 </pre>
                 </div>
             </div>
@@ -699,7 +738,8 @@ myDb.loadFromFile("./my.db");
         </div>
     </div>
 
-    <script src="assets/js/merodb.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
 
 </html>

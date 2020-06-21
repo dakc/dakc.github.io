@@ -11,6 +11,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
             }
         });
     });
+
+
+    document.querySelectorAll('pre code').forEach((block) => {
+        hljs.highlightBlock(block);
+      });
 })
 
 var removeActiveMenu = () => {

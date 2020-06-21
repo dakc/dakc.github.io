@@ -8,62 +8,43 @@
     <meta name="description"
         content="A simple and light web framework for nodejs which runs on native node environment without any other third party libraries.">
     <title>majidai</title>
-    <link rel="stylesheet" href="assets/css/majidai.css">
-    <link rel="icon" type="image/x-icon" href="https://prakashkc99.com/favicon.ico?key=majidai">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" type="image/x-icon" href="assets/img/majidai.ico">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
 </head>
 
 <body>
     <div class="container">
         <div class="sidebar">
             <div class="personal">
-                <img src="https://prakashkc99.com/favicon.ico" alt="avatar">
-                <span>Da KC</span>
+                <img src="assets/img/majidai.svg" alt="avatar">
                 <span>majidai</span>
             </div>
             <div class="menu">
                 <div>
-                    <header>About</header>
+                    <header>ABOUT</header>
                     <nav>
                         <ul>
                             <li><i></i><a href="?#about">about</a></li>
-                            <li><i></i><a href="?#features">features</a></li>
                             <li><i></i><a href="?#install">install</a></li>
-                            <li><i></i><a href="?#setup">setup</a></li>
-                            <li><i></i><a href="?#configs">configs</a></li>
-                            <li><i></i><a href="?#docker">docker</a></li>
-                            <li><i></i><a href="?#ab_test">ab test</a></li>
+                            <li><i></i><a href="?#logging">logging</a></li>
                         </ul>
                     </nav>
                 </div>
 
                 <div>
-                    <header>logging</header>
+                    <header>METHOD</header>
                     <nav>
                         <ul>
-                            <li><i></i><a href="?#log_info">info</a></li>
-                            <li><i></i><a href="?#log_warn">warn</a></li>
-                            <li><i></i><a href="?#log_error">error</a></li>
-                            <li><i></i><a href="?#log_debug">debug</a></li>
-                            <li><i></i><a href="?#log_access">access</a></li>
+                            <li><i></i><a href="?#method_get">get</a></li>
+                            <li><i></i><a href="?#method_post">post </a></li>
+                            <li><i></i><a href="?#method_listen">listen</a></li>
                         </ul>
                     </nav>
                 </div>
 
                 <div>
-                    <header>session</header>
-                    <nav>
-                        <ul>
-                            <li><i></i><a href="?#session_put">put</a></li>
-                            <li><i></i><a href="?#session_get">get</a></li>
-                            <li><i></i><a href="?#session_delete">delete</a></li>
-                            <li><i></i><a href="?#session_destroy">destroy</a></li>
-                            <li><i></i><a href="?#session_regenId">regenId</a></li>
-                        </ul>
-                    </nav>
-                </div>
-
-                <div>
-                    <header>data</header>
+                    <header>REQUEST DATA</header>
                     <nav>
                         <ul>
                             <li><i></i><a href="?#data_getParams">getParams</a></li>
@@ -72,64 +53,28 @@
                     </nav>
                 </div>
 
-
                 <div>
-                    <header>client</header>
+                    <header>RESPOND</header>
                     <nav>
                         <ul>
-                            <li><i></i><a href="?#client_ip">ip</a></li>
-                            <li><i></i><a href="?#client_hostName">hostName</a></li>
-                            <li><i></i><a href="?#client_userAgent">userAgent</a></li>
-                            <li><i></i><a href="?#client_referrer">referrer</a></li>
-                            <li><i></i><a href="?#client_url">url</a></li>
-                            <li><i></i><a href="?#client_method">method</a></li>
-                            <li><i></i><a href="?#client_headers">headers</a></li>
-                            <li><i></i><a href="?#client_getCookie">getCookie</a></li>
-                            <li><i></i><a href="?#client_addCookie">addCookie</a></li>
-                            <li><i></i><a href="?#client_deleteCookie">deleteCookie</a></li>
-                        </ul>
-                    </nav>
-                </div>
-
-
-                <div>
-                    <header>response</header>
-                    <nav>
-                        <ul>
-                            <li><i></i><a href="?#response_static">static</a></li>
-                            <li><i></i><a href="?#response_error">error</a></li>
-                            <li><i></i><a href="?#response_plainText">plainText</a></li>
+                            <li><i></i><a href="?#response_plainText">text</a></li>
                             <li><i></i><a href="?#response_json">json</a></li>
+                            <li><i></i><a href="?#response_static">static</a></li>
                             <li><i></i><a href="?#response_redirect">redirect</a></li>
+                            <li><i></i><a href="?#response_error">error</a></li>
                         </ul>
                     </nav>
                 </div>
 
                 <div>
-                    <header>native</header>
+                    <header>Misc</header>
                     <nav>
                         <ul>
-                            <li><i></i><a href="?#native_request">request</a></li>
-                            <li><i></i><a href="?#native_response">response</a></li>
-                        </ul>
-                    </nav>
-                </div>
-
-                <div>
-                    <header>authentication</header>
-                    <nav>
-                        <ul>
-                            <li><i></i><a href="?#authentication_triggerAuthCheck">triggerAuthCheck</a></li>
-                            <li><i></i><a href="?#authentication_mustBeAuthorized">mustBeAuthorized </a></li>
-                        </ul>
-                    </nav>
-                </div>
-
-                <div>
-                    <header>samples</header>
-                    <nav>
-                        <ul>
-                            <li><i></i><a href="?#samples_samples">samples</a></li>
+                            <li><i></i><a href="?#static_page">Serve Static</a></li>
+                            <li><i></i><a href="?#custom_err">Error Page</a></li>
+                            <li><i></i><a href="?#set_mimetype">setMimeType</a></li>
+                            <li><i></i><a href="?#configuration">configuration</a></li>
+                            <li><i></i><a href="?#docker">docker</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -137,14 +82,12 @@
 
             </div>
 
+            <hr>
             <div class="links">
                 <ul>
-                    <li><a href="https://travis-ci.com/dakc/majidai"><img
-                                src="https://travis-ci.com/dakc/majidai.svg?branch=develop"></a></li>
-                    <li><a href="https://www.npmjs.com/package/majidai"><img
-                                src="https://img.shields.io/npm/v/majidai.svg"></a></li>
-                    <li><a href="https://github.com/dakc/majidai/blob/master/LICENSE"><img
-                                src="https://img.shields.io/github/license/dakc/merodb.svg?style=popout"></a></li>
+                    <li><a href="https://travis-ci.com/dakc/majidai"><img src="https://travis-ci.com/dakc/majidai.svg?branch=develop"></a></li>
+                    <li><a href="https://www.npmjs.com/package/majidai"><img src="https://img.shields.io/npm/v/majidai.svg"></a></li>
+                    <li><a href="https://github.com/dakc/majidai/blob/master/LICENSE"><img src="https://img.shields.io/github/license/dakc/merodb.svg?style=popout"></a></li>
                 </ul>
             </div>
 
@@ -162,68 +105,15 @@
                 <div class="row">
                     <h1>About majidai</h1>
                     <p>
-                        majidai is a nodejs web framework released under MIT liscense.
-                        It works on native node environment <em>without installing any other libraries</em>.
-                        And it is less then 50KB in size.<br>
-                        That is why it is very <em>simple</em> and <em>lightweight</em>.
+                        <em>majidai</em> is a configuration centralized nodejs web framework.
+                        It works on native node environment <em>without installing other third party libraries</em>.
                     </p>
-                    <p>
-                        It is a configuration centralized webframework. 
-                        We can easily create HTTPS SERVER (including http2) by just customizing the configuration.
+                    <p class="note-box">
+                        It is released under MIT liscense.
                     </p>
                 </div>
             </div>
 
-            <div id="features">
-                <div class="row">
-                    <h1>Features</h1>
-                    <p>
-                        The Tree Structure for the features of majidai is as following, which we will be discussing one
-                        by one later.
-                        <pre>
-app
-|------data
-|             |-------getParams
-|             |-------postParams
-|------session
-|             |-------put
-|             |-------get
-|             |-------delete
-|             |-------destroy
-|             |-------regenId
-|------logger
-|             |-------access
-|             |-------error
-|             |-------debug
-|             |-------warn
-|             |-------info
-|------respond
-|             |-------static
-|             |-------error
-|             |-------plainText
-|             |-------html
-|             |-------json
-|             |-------redirect
-|------client
-|             |-------ip
-|             |-------hostName
-|             |-------userAgent
-|             |-------referrer
-|             |-------url
-|             |-------method
-|             |-------headers
-|             |-------getCookie
-|             |-------addCookie
-|             |-------deleteCookie
-|------native
-|             |-------request
-|             |-------response
-|------triggerAuthCheck
-|------mustBeAuthorized
-        </pre>
-                    </p>
-                </div>
-            </div>
 
 
             <div id="install">
@@ -231,1175 +121,1011 @@ app
                     <h2>Installation</h2>
                     Install the framework by using following command.
                     <pre>
+                        <code class="bash">
 npm install majidai
+                        </code>
+
 </pre>
-                </div>
-            </div>
 
-
-            <div id="setup">
-                <div class="row">
-                    <h2>Setup</h2>
-                    The structure for writting code will be as following.
-                    <pre>
-// 1. import majidai
-const majidai = require("majidai");
-
-// 2. create instance
-const server = new majidai();
-
-// 3. create routing
-server.METHOD("ROUTING", function (app) {
-    // app object contains different properties and methods
-    // which we will be discussing below
-
-    // do codings
-
-    // return response
-});
-
-// 4. start listening server
-server.start();
-                    </pre>
-                    <p class="strong">※ Change METHOD with either "get" or "post". And ROUTING with the appropriate
-                        route.</p>
-
-                    Let us Create a file named server.js and paste following content.
-                    <pre>
-// import majidai
-const majidai = require("majidai");
-
-// create instance
-const server = new majidai();
-
-// create routing
-server.get("/", function (app) {
-    return "Hello majidai";
-});
-
-// start listening server
-server.start();
-</pre>
-                    Run server by running following command.
-                    <pre>
-node server.js
-</pre>
                     <p>
-                        Now, your server will be listening at locahost with 80 port. If the port is not open then, it
-                        will throw error.
-                    </p>
-
-
-                    <div>
-                            <p class="strong">※ Note</p>
-                        majidai has 3 properties for handling ROUTING.
-                        <ol>
-                            <li>get</li>
-                            <li>post</li>
-                            <li>customRouting</li>
-                        </ol>
-                    </div>
-                    <div>
-                        The "get" property will listen to GET method, while "post" property will listen to POST method.
-                        The "customRouting" property will help us to listen for multiple http methods for a single routing.
-                        <p>For example, in the below example we will be able to access "home" path by both GET and POST method. </p>
-<pre>
-// import majidai
-const majidai = require("majidai");
-
-// create instance
-const server = new majidai();
-
-// create routing
-server.customRouting({method:["GET", "POST"], routing:"/home"}, function (app) {
-    return "Hello majidai";
-});
-
-// start listening server
-server.start();
-</pre>
-                    </div>
-                </div>
-            </div>
-
-
-
-            <div id="configs">
-                <div class="row">
-                    <h1>Configuration</h1>
-                    <p>
-                        The Default Configuration will be as following.
+                        create server.js with the following content and run "node server.js" from the same directory.
                         <pre>
-{
-    port: 80,    // port number
-    host: "0.0.0.0",    // host ip 
-    log: {
-        folder: "./log",    // folder where to write log
-        isWriteAccess: false,      // if is set to true, it will write access information like time, browser information, url, etc into a log file
-    },
-    session:
-    {
-        isActivate: true, // if no data is required to save into session, changing it to false will decrease IO stress.
-        timeOut: 1000 * 60 * 30, // 30 minutes
-    },
-    publicDir: "./public",  // the folder to serve static files like css,js,images,etc
-    isProduction: true, // if set false it will output all the logs on console
-    maxBodySize: 100 * 1024,  // maximum size allowed to body in byte
-    header: {    // default header configuration
-        "x-content-type-options": "nosniff",
-        "x-frame-options": "SAMEORIGIN",
-        "x-xss-protection": "1; mode=block",
-        "server": "majidai@1.0",
-        "Access-Control-Allow-Origin":"*",
-        "Accept": "*/*",
-    }
-}
-                        </pre>
-                    </p>
-                    <p class="strong">We can change by passing the Configuration while creating majidai instance.</p>
-                    <p>Let us create a server listening on 8000 port with access log activated and start as development
-                        mode.</p>
-                    <pre>
-// import majidai
+                            <code class="javascript">
 const majidai = require("majidai");
-
-// create configuration
-var config =  {
-    port: 8000, // change the port to listen
-    isProduction: false, // it will show the logs on console
-    log: {
-        isWriteAccess: true, // it will write the access log
+const server = new majidai();
+server.start();
+                            </code>
+</pre>
+                    </p>
+                    <p>
+                        Open the browser and access to http://locahost. You will see following page.
+                    </p>
+                    <p class="toppage-img">
+                        <img src="/assets/img/toppage.png" alt="majidai top page">
+                    </p>
+                    
+                        <p class="strong">※ By default, majidai listens at 80 port which can be changed by passing
+                            http.port parameter.</p>
+<pre>
+<code class="javascript">
+const config = {
+    http: {
+        port: 8000
     }
 };
-
-// create instance
 const server = new majidai(config);
+</code>
+</pre>
 
-// create routing
-server.get("/", function (app) {
-    return "Hello majidai";
+<h1>OR</h1> in one line
+
+<pre>
+<code class="javascript">
+const server = new majidai({http: {port: 8000}});
+</code>
+</pre>
+
+                </div>
+            </div>
+
+
+
+
+
+
+            <div id="logging">
+                <div class="row">
+                    <h1>Logging</h1>
+                    <p>
+                        majidai emits 2 types of events which can be used for logging purpose.
+                        <ol>
+                            <li>stdout: it contains client information(access time,ip,http method) in json object format</li>
+                            <li>stderr: it contains error message</li>
+                        </ol>
+                        <pre>
+                            <code class="javascript">
+const server = new majidai();
+
+server.on('stdout', function (data) {
+    console.log(data);
+    // {time: '', ip: '', hostName: '', userAgent: '', referrer: '', url: '', method: ''}
+
+    // write to file if needed
 });
 
-// start listening server
+server.on('stderr', function (data) {
+    console.error(data);
+    // error content (string)
+
+    // write to file if needed
+});
+
 server.start();
-                    
-                    </pre>
-                    <p class="strong">See <a href="https://github.com/dakc/majidai/blob/master/example/custom-config.js"
-                            target="_blank">Here</a> for usage.</p>
+                            </code>
+</pre>
+                    </p>
+
+                    <p>
+
+                    </p>
                 </div>
             </div>
 
 
-            <div id="docker">
+
+            <div id="structure">
                 <div class="row">
-                    <h2>Docker</h2>
-                    Let's pull majidai image.
-                    <pre>
-docker pull dakc/majidai
-</pre>
-
-                    create container with name majidai and run on background.
-                    <pre>
-docker run -d -p 8000:80 --name majidai dakc/majidai
-</pre>
-
-                    Lets watch log.
-                    <pre>
-docker logs majidai -f
-</pre>
+                    <h1>Structure</h1>
                     <p>
-                        Open Browser and access to access to http://localhost:8000/.<br>
-                        We will be seeing client information in console.
+                        This is the general style for writing code using majidai.
                     </p>
-                    <p>We can open majidai container in interactive mode through following command.</p>
-                    <pre>
-docker exec -it majidai sh
-</pre>
                     <p>
-                        We will be jumped to /data/examples directory where there are <a
-                            href="#samples_samples">samples</a> for various usage.
-                        File name will represent the summary of content inside it.
+                        <pre>
+<code class="javasscript">
+server.METHOD(PATH, CALLBACK)
+</code>
+</pre>
+                    </p>
+                    <p>"METHOD" denotes following 3 methods for creating a route.</p>
+                    <ol>
+                        <li><a href="#method_get">get</a> : only listens for http GET method</li>
+                        <li><a href="#method_post">post</a>: only listens for http POST method</li>
+                        <li><a href="#method_listen">listen</a>: listens for multiple http methods</li>
+                    </ol>
+
+
+                    <p>
+                        "PATH" denotes a path to listen. For eg, "/", "/top",etc
+                        <div class="note-box">
+                            majidai supports parameterized routing. string placed between "{}" in a PATH will be
+                            the key for getting data.
+                            <pre>
+                                <code class="javascript">
+server.get('/order/{item}/{quantity}', (request, response) => {
+    // when  a request is http://〇〇/order/orange/20
+
+    // get item name
+    var itemName = request.mj.getParams("item");
+    console.log(itemName);
+    // oranage
+
+    // get item quantity
+    var itemQuantity  = request.mj.getParams("quantiry");
+    console.log(itemQuantity);
+    // 20
+
+
+    // OR
+    // get all data
+    var getData = request.mj.getParams();
+    console.log(getData);
+    // { item: 'orange', quantity: '20' }
+
+    // get value for item
+    var itemName_ = getData.item;
+    console.log(itemName_);
+    // oranage
+
+    // get value for quantity
+    var itemQuantity_ = getData.quantity;
+    console.log(itemQuantity_);
+    // 20
+
+    return "something";
+});
+                                </code>
+                            </pre>
+                            <p class="strong">It works on all 3 methods(get,post,listen).</p>
+                        </div>
                     </p>
 
 
+                    <p>
+                        "CALLBACK" is a function which receives request&lt;http.IncomingMessage&gt; and
+                        response&lt;http.ServerResponse&gt; object as argument.
+                        Return statement from CALLBACK will be the response.
+                        <pre>
+    <code class="javascript">
+function CALLBACK(request, response){
+    // do something
+
+    return "response";
+}
+    </code>
+</pre>
+                    </p>
+
+                    <div class="note-box">
+                        <p>
+                            it adds "mj" object to the request&lt;http.IncomingMessage&gt; argument of the CALLBACK,
+                            which helps to get the data sent from user in json object format.
+
+                        </p>
+                        <ol>
+                            <li><a href="">getParms</a> : returns GET request DATA as json object.</li>
+                            <li><a href="">postParams</a>: returns POST request DATA as json object.</li>
+                        </ol>
+                        <p class="strong">
+                            ※ request has all <a href="https://nodejs.org/api/http.html#http_class_http_incomingmessage">&lt;http.IncomingMessage&gt;</a> properties and methods beside "mj" added by majidai.
+                        </p>
+                    </div>
+                    <div class="note-box">
+                        <p>
+                            it adds "mj" object to the response&lt;http.ServerResponse&gt; argument of the CALLBACK,
+                            which has following functions to send different types of response.
+                        </p>
+                        <ol>
+                            <li><a href="">text</a> : respond plain text</li>
+                            <li><a href="">json</a>: respond json object</li>
+                            <li><a href="">html</a>: respond html</li>
+                            <li><a href="">static</a>: respond static html file</li>
+                            <li><a href="">error</a>: respond with http error code</li>
+                            <li><a href="">redirect</a>: redirect to different url</li>
+                        </ol>
+                        <p class="strong">
+                            ※ response has all <a href="https://nodejs.org/api/http.html#http_class_http_serverresponse">&lt;http.ServerResponse&gt;</a> properties and methods beside "mj" added by majidai.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+            <h1>Methods</h1>
+
+            <div id="method_get">
+                <div class="row">
+                    <h1>get</h1>
                     <div>
-                        <p class="strong">※ OR WE CAN JUST TRY WITH THIS ONE LINE COMMAND.</p>
+                        This method listens for http GET request for a specific path.
+                        <div class="code">
+                            server.get - &lt;path&gt;, &lt;callback&gt;
+                        </div>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>parameter</th>
+                                    <th>type</th>
+                                    <th>description</th>
+                                </tr>
+                                <tr>
+                                    <td>path</td>
+                                    <td>string</td>
+                                    <td>path to listen request(eg, "/", "/top",etc)</td>
+                                </tr>
+                                <tr>
+                                    <td>callback</td>
+                                    <td>function</td>
+                                    <td>function to run while GET request is received to the path argument.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
                         <pre>
-docker run -it --rm -p 8000:80 --name majidai dakc/majidai sh
-                        </pre>
-                        <p>Open Browser and access to access to http://localhost:8000/</p>
-                    </div>
-                </div>
-            </div>
+                            <code class="javascript">
+const server = new majidai();
 
+server.get('/top', (request, response) => {
+    // do something
+    // code for GET request at http://〇〇/top
 
+    return "something";
+});
 
-            <div id="ab_test">
-                <div class="row">
-                    <h1>Apache ab Test</h1>
-                    <p>
-                        The result of ab test for 15000 concurrent access is as following.
-                        <pre>
-\apache\bin>ab.exe -n 15000 -c 15000 http://127.0.0.1/
-This is ApacheBench, Version 2.3 <$Revision: 1807734 $>
-Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
-Licensed to The Apache Software Foundation, http://www.apache.org/
-
-Benchmarking 127.0.0.1 (be patient)
-Completed 1500 requests
-Completed 3000 requests
-Completed 4500 requests
-Completed 6000 requests
-Completed 7500 requests
-Completed 9000 requests
-Completed 10500 requests
-Completed 12000 requests
-Completed 13500 requests
-Completed 15000 requests
-Finished 15000 requests
-
-
-Server Software:        majidai@1.0
-Server Hostname:        127.0.0.1
-Server Port:            80
-
-Document Path:          /
-Document Length:        18 bytes
-
-Concurrency Level:      15000
-Time taken for tests:   17.415 seconds
-Complete requests:      15000
-Failed requests:        0
-Total transferred:      4230000 bytes
-HTML transferred:       270000 bytes
-Requests per second:    861.33 [#/sec] (mean)
-Time per request:       17414.998 [ms] (mean)
-Time per request:       1.161 [ms] (mean, across all concurrent requests)
-Transfer rate:          237.20 [Kbytes/sec] received
-
-Connection Times (ms)
-                min  mean[+/-sd] median   max
-Connect:        0    1  19.2      0     502
-Processing:  2844 8319 3663.7   7683   15913
-Waiting:      785 6799 4036.8   6107   15143
-Total:       2844 8320 3663.9   7683   15913
-
-Percentage of the requests served within a certain time (ms)
-    50%   7683
-    66%   9966
-    75%  11071
-    80%  12127
-    90%  13750
-    95%  14825
-    98%  15373
-    99%  15888
-    100%  15913 (longest request)
-                    </pre>
-                    </p>
-                </div>
-            </div>
-
-
-            <div id="log_info">
-                <div class="row">
-                    <h2>General Logging</h2>
-                    <div class="code">
-                        app.logger.info - &lt;content&gt;
-                    </div>
-                    It will log general log in a file with name app.log.
-
-                    <p>
-                        Let's try it,
-                        <pre>
-    app.logger.info("User logged");
-    </pre>
-                    </p>
-                </div>
-            </div>
-
-            <div id="log_warn">
-                <div class="row">
-                    <h2>Warning Logging</h2>
-                    <div class="code">
-                        app.logger.warn - &lt;content&gt;
-                    </div>
-                    It will log warning log in a file with name app.log.
-
-                    <p>
-                        Let's try it,
-                        <pre>
-        app.logger.warn("User Id is not valid");
-        </pre>
-                    </p>
-                </div>
-            </div>
-
-            <div id="log_error">
-                <div class="row">
-                    <h2>Error Logging</h2>
-                    <div class="code">
-                        app.logger.error - &lt;content&gt;
-                    </div>
-                    It will log error in a file with name app.log.
-
-                    <p>
-                        Let's try it,
-                        <pre>
-app.logger.error("User Id is not valid");
+server.start();
+                            </code>
 </pre>
-                    </p>
-                </div>
-            </div>
-
-
-            <div id="log_debug">
-                <div class="row">
-                    <h2>Debug Logging</h2>
-                    <div class="code">
-                        app.logger.debug - &lt;content&gt;
                     </div>
-                    It will log error in a file with name app.log.
-                    <p>
-                        Let's try it,
+
+
+
+                </div>
+            </div>
+
+
+            <div id="method_post">
+                <div class="row">
+                    <h1>post</h1>
+                    <div>
+                        This method listens for http POST request for a specific path.
+                        <div class="code">
+                            server.post - &lt;path&gt;, &lt;callback&gt;
+                        </div>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>parameter</th>
+                                    <th>type</th>
+                                    <th>description</th>
+                                </tr>
+                                <tr>
+                                    <td>path</td>
+                                    <td>string</td>
+                                    <td>path to listen request(eg, "/", "/top",etc)</td>
+                                </tr>
+                                <tr>
+                                    <td>callback</td>
+                                    <td>function</td>
+                                    <td>function to run while POST request is received to the path argument.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
                         <pre>
-    app.logger.debug("Login accessed for multiple time");
-    </pre>
-                    </p>
-                </div>
-            </div>
+                            <code class="javascript">
+const server = new majidai();
 
-            <div id="log_access">
-                <div class="row">
-                    <h2>Access Logging</h2>
-                    It will log for each access in json format to a file with name yyyy-mm-dd.access
+server.post('/login', (request, response) => {
+    // do something
+    // code for POST request at http://〇〇/login
 
-                    <p class="strong">For removing IO stress, By default it is set to OFF.
-                        But we can ON it through configuration if needed.</p>
-                    <pre>
-var config = {
-    log: {
-        isWriteAccess: true
-    }
-}
+    return "something";
+});
+
+server.start();
+                            </code>
 </pre>
-                    <p class="strong">This is not accesible but we can activate and deactivate through isWriteAccess
-                        flag.</p>
-                </div>
-            </div>
-
-            <div id="session_put">
-                <div class="row">
-                    <h2>Session - put</h2>
-                    <div class="code">
-                        app.session.put - &lt;key&gt;, &lt;value&gt;
                     </div>
-                    majidai will help you to manipulate data easily into session.
-                    put method will save the data into session.
-                    <table>
-                        <tr>
-                            <th>parameter</th>
-                            <th>type</th>
-                            <th>description</th>
-                        </tr>
-                        <tr>
-                            <td>key</td>
-                            <td>string</td>
-                            <td>key to data</td>
-                        </tr>
-                        <tr>
-                            <td>value</td>
-                            <td>any (number,boolean,string,object)</td>
-                            <td>value for key.</td>
-                        </tr>
-                    </table>
-                    <p>
-                        Let's try it,
-                        <pre>
-// put a data in session with key "price" and value 100
-app.session.put("price", 100);
 
-// put object
-var userObj = {id:1,name:"dakc"};
-app.session.put("user",userObj);
-            </pre>
-                    </p>
-                    <p class="strong">Session will be valid for the the time set in configuration.
-                        If the time is expired all the datas will be lost automatically.
-                    </p>
-                    <p>We can change the session time through configuration.
-                        <pre>
-// configuration for setting session active time for 5min
-var config = {
-    session:{
-        timeOut: 1000 * 60 * 5
-    }
-}
-</pre>
-                    </p>
+
+
                 </div>
             </div>
 
-            <div id="session_get">
+
+            <div id="method_listen">
                 <div class="row">
-                    <h2>Session - get</h2>
-                    <div class="code">
-                        app.session.get - &lt;key&gt;?
-                    </div>
-                    This method will get the data from session.
-                    <table>
-                        <tr>
-                            <th>parameter</th>
-                            <th>type</th>
-                            <th>description</th>
-                        </tr>
-                        <tr>
-                            <td>key</td>
-                            <td>string (optional)</td>
-                            <td>key to get data</td>
-                        </tr>
-                    </table>
-                    <p>
-                        Let's try it,
-                        <pre>
-// lets get the value of price
-var price = app.session.get("price");
+                    <h1>listen</h1>
+                    <div>
+                        This method listens for multiple http methods on single path.
+                        <div class="code">
+                            server.listen - &lt;routeObj&gt;, &lt;callback&gt;
+                        </div>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>parameter</th>
+                                    <th>type</th>
+                                    <th>description</th>
+                                </tr>
+                                <tr>
+                                    <td>routeObj</td>
+                                    <td>object</td>
+                                    <td>it is json object {method: [], path: ''} where "method" is a array of http methods and "path" is a path to listen request
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>callback</td>
+                                    <td>function</td>
+                                    <td>function to run while request is received to the path argument.</td>
+                                </tr>
+                            </tbody>
+                        </table>
 
-// lets get all data from session (do not pass any argument)
-var sessionData = app.session.get();
+                        <pre>
+                            <code class="javascript">
+const server = new majidai();
+
+server.listen({ method: ["GET", "POST"], path: "/profile" }, (request, response) => {
+    // do something
+    // code for both GET request & POST request at http://〇〇/profile
+
+    return "something";
+});
+
+server.start();
+                            </code>
 </pre>
-                    </p>
-                    <p class="strong">If no argument is passed, it will return all the data from session.
-                    </p>
+                    </div>
+
+
+
                 </div>
             </div>
 
-            <div id="session_delete">
-                <div class="row">
-                    <h2>Session - delete</h2>
-                    <div class="code">
-                        app.session.delete - &lt;key&gt;
-                    </div>
-                    This method will delete the data for given key from session.
-                    <table>
-                        <tr>
-                            <th>parameter</th>
-                            <th>type</th>
-                            <th>description</th>
-                        </tr>
-                        <tr>
-                            <td>key</td>
-                            <td>string</td>
-                            <td>key to remove from session</td>
-                        </tr>
-                    </table>
-                    <p>
-                        Let's try it,
-                        <pre>
-// lets delete the data with key "price" from session
-app.session.delete("price");
-</pre>
-                    </p>
-                </div>
-            </div>
+            <hr>
+            <h1>Access to Data Sent By Client</h1>
 
-            <div id="session_destroy">
-                <div class="row">
-                    <h2>Session - destroy</h2>
-                    <div class="code">
-                        app.session.destroy -
-                    </div>
-                    This method will delete <span class="strong">all the data</span> from session.
-
-                    <p>
-                        Let's try it,
-                        <pre>
-app.session.destroy();
-</pre>
-                    </p>
-                </div>
-            </div>
-
-            <div id="session_regenId">
-                <div class="row">
-                    <h2>Session - regenerate session id</h2>
-                    <div class="code">
-                        app.session.regenId -
-                    </div>
-                    This method will regenrate the session ID.
-                    <p>
-                        Let's try it,
-                        <pre>
-app.session.regenId();
-</pre>
-                    </p>
-                    <p class="strong">※ It will DESTROY all the datas put before the method is called.
-                        So, Be carefull while saving data.
-                        Saving data after calling this method wont delete.
-                    </p>
-                </div>
-            </div>
 
             <div id="data_getParams">
                 <div class="row">
-                    <h2>GET method parameters</h2>
+                    <h1>getParams</h1>
                     <div class="code">
-                        app.data.getParams - &lt;key&gt;?
+                        request.mj.getParams - &lt;key&gt;?
                     </div>
-                    This method will get the data sent as GET parameters.
+                    All the data sent through GET request will be accessed through this method.
                     <table>
-                        <tr>
-                            <th>parameter</th>
-                            <th>type</th>
-                            <th>description</th>
-                        </tr>
-                        <tr>
-                            <td>key</td>
-                            <td>string (optional)</td>
-                            <td>key to get data</td>
-                        </tr>
+                        <tbody>
+                            <tr>
+                                <th>parameter</th>
+                                <th>type</th>
+                                <th>description</th>
+                            </tr>
+                            <tr>
+                                <td>key</td>
+                                <td>string (optional)</td>
+                                <td>name of key whose value is to be known.</td>
+                            </tr>
+                        </tbody>
                     </table>
-                    <p>
-                        Let's try it,
-                        <pre>
-// lets get the value of price (../home?price=230)
-var price = app.data.getParams("price");
+                    <p class="strong">If no parameter is passed, it will return all the GET data in JSON format.
+                    </p>
 
-// get all data
-var getData = app.data.getParams();
-// get value for id (eg, url...?id=yuyuu)
-var idSent = getData.id;
+<pre>
+<code class="javascript">
+const server = new majidai();
+
+server.get("/home", (request,response) => {
+    // get the value of price when request is http://〇〇/home?price=230)
+    var price = request.mj.getParams("price");
+    console.log(price);
+    // 230
+    
+    // OR
+    // get all data
+    var getData = request.mj.getParams();
+    console.log(getData);
+    // { price: '230' }
+    
+    // get value for price
+    var price_ = getData.price;
+    console.log(price);
+    // 230
+
+
+    return "something";
+});
+
+server.start();
+</code>
+</pre>
+                    <p>
+                        it works on all types of routing including <span class="strong">parameterized routing</span>.
+<pre>
+<code>
+server.post("/home/{user}", (request,response) => {  
+    // when POST request is received at http://〇〇/home/dakc?page=profile   
+
+    // get all data for GET parameter
+    var getData = request.mj.getParams();
+    console.log(getData);
+    // { page: 'profile', user: 'dakc' }
+
+    return "something";
+});    
+</code>
 </pre>
                     </p>
-                    <p class="strong">If no argument is passed, it will return all the data in JSON format.
-                    </p>
+
                 </div>
             </div>
+
+
 
             <div id="data_postParams">
                 <div class="row">
-                    <h2>POST method parameters</h2>
+                    <h1>postParams</h1>
                     <div class="code">
-                        app.data.postParams - &lt;key&gt;?
+                        response.mj.postParams - &lt;key&gt;?
                     </div>
-                    This method will get the data sent as POST parameters.
-                    For now it only supports <span class="strong">x-www-form-urlencoded</span>.
-                    <table>
-                        <tr>
-                            <th>parameter</th>
-                            <th>type</th>
-                            <th>description</th>
-                        </tr>
-                        <tr>
-                            <td>key</td>
-                            <td>string (optional)</td>
-                            <td>key to get data</td>
-                        </tr>
-                    </table>
                     <p>
-                        Let's try it,
-                        <pre>
-// lets get the value of price (eg, &lt;input name="price" value="2000"&gt;)
-var price = app.data.postParams("price");
-
-// get all data send by POST method
-var postData = app.data.postParams();
-// get value for id
-var idSent = postData.id;
-</pre>
+                        This method will get the data sent as POST parameters.
+                    Data sent through any methods(<span class="strong">x-www-form-urlencoded, application/json,
+                        form-data</span>)
+                    will be returned as json object.
                     </p>
+                  
+                    <table>
+                        <tbody>
+                            <tr>
+                                <th>parameter</th>
+                                <th>type</th>
+                                <th>description</th>
+                            </tr>
+                            <tr>
+                                <td>key</td>
+                                <td>string (optional)</td>
+                                <td>key to get data</td>
+                            </tr>
+                        </tbody>
+                    </table>
                     <p class="strong">If no argument is passed, it will return all the data in JSON format.
                     </p>
-                </div>
-            </div>
 
-            <div id="client_ip">
-                <div class="row">
-                    <h2>Client Ip Address</h2>
-                    <div class="code">
-                        app.client.ip -
-                    </div>
-                    This method will return client's IP Address.
-                    <p>
-                        Let's try it,
-                        <pre>
-app.client.ip();
+<pre>
+<code>
+const server = new majidai();
+
+server.post("/home", (request,response) => {  
+    // lets get the value of price (eg, &lt;input name="price" value="2000"&gt;)
+    var price = request.mj.postParams("price");
+
+    // get all data send by POST method
+    var postData = request.mj.postParams();
+    // get value for id
+    var idSent = postData.id;
+
+    // do something
+
+    return "something";
+});
+
+server.start();
+</code>
 </pre>
-                    </p>
-                    <p class="strong"></p>
+<p class="note-box">※ multipart/form-data is not supported by default, but we can use other libraries.</p>
+                    
+
                 </div>
             </div>
 
-            <div id="client_hostName">
+            <hr>
+            <h1>Respond to client</h1>
+
+            <div id="response_plainText">
                 <div class="row">
-                    <h2>Client host name</h2>
+                    <h1>text</h1>
                     <div class="code">
-                        app.client.hostName -
+                        response.mj.text - &lt;content&gt;,&lt;status code&gt;?
                     </div>
-                    This method will return client's HOST name.
-                    <p>
-                        Let's try it,
-                        <pre>
-app.client.hostName();
+                    This method will respond as plain text.
+                    <table>
+                        <tbody>
+                            <tr>
+                                <th>parameter</th>
+                                <th>type</th>
+                                <th>description</th>
+                            </tr>
+                            <tr>
+                                <td>content</td>
+                                <td>string</td>
+                                <td>content to respond</td>
+                            </tr>
+                            <tr>
+                                <td>status code</td>
+                                <td>number(optional)</td>
+                                <td>default 200</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <pre>
+<code class="javascript">
+const server = new majidai();
+
+server.get("/", (request, response) => {
+    return response.mj.text("Hello!");
+});
+
+server.start();
+</code>
 </pre>
-                    </p>
-                    <p class="strong"></p>
-                </div>
-            </div>
 
-            <div id="client_userAgent">
-                <div class="row">
-                    <h2>Client browser information</h2>
-                    <div class="code">
-                        app.client.userAgent -
-                    </div>
-                    This method will return client's browser information from which it is accessed.
-                    <p>
-                        Let's try it,
+                    <div class="note-box">
+                        <p class="strong">Returning a string from callback will also respond as plain/text.</p>
                         <pre>
-app.client.userAgent();
+<code class="javascript">
+const server = new majidai();
+
+server.get("/", (request, response) => {
+    return "Hello!";
+});
+
+server.start();
+</code>
 </pre>
-                    </p>
-                    <p class="strong"></p>
+                    </div>
                 </div>
             </div>
 
-            <div id="client_referrer">
+
+            <div id="response_json">
                 <div class="row">
-                    <h2>Refferer name</h2>
+                    <h1>json</h1>
                     <div class="code">
-                        app.client.referrer -
+                        response.mj.json - &lt;content&gt;,&lt;status code&gt;?
                     </div>
-                    This method will return referrer's name.
-                    <p>
-                        Let's try it,
-                        <pre>
-app.client.referrer();
+                    This method will respond the content as json.
+                    <table>
+                        <tbody>
+                            <tr>
+                                <th>parameter</th>
+                                <th>type</th>
+                                <th>description</th>
+                            </tr>
+                            <tr>
+                                <td>content</td>
+                                <td>object</td>
+                                <td>json object to respond</td>
+                            </tr>
+                            <tr>
+                                <td>status code</td>
+                                <td>number(optional)</td>
+                                <td>default 200</td>
+                            </tr>
+                        </tbody>
+                    </table>
+<pre>
+<code class="javascript">
+const server = new majidai();
+
+server.get("/", (request, response) => {
+    return response.mj.json({id: 1, name: 'majidai'});
+});
+
+server.start();
+</code>
 </pre>
-                    </p>
-                    <p class="strong"></p>
-                </div>
-            </div>
+                        
+                                            <div class="note-box">
+                                                <p class="strong">Returning a json object from callback will also respond as application/json.</p>
+<pre>
+<code class="javascript">
+const server = new majidai();
 
-            <div id="client_url">
-                <div class="row">
-                    <h2>URL information</h2>
-                    <div class="code">
-                        app.client.url -
-                    </div>
-                    This method will return url information from which it is accessed to.
-                    <p>
-                        Let's try it,
-                        <pre>
-app.client.url();
+server.get("/", (request, response) => {
+    return {id: 1, name: 'majidai'};
+});
+
+server.start();
+</code>
 </pre>
-                    </p>
-                    <p class="strong"></p>
+                                            </div>
                 </div>
             </div>
-
-            <div id="client_method">
-                <div class="row">
-                    <h2>http method</h2>
-                    <div class="code">
-                        app.client.method -
-                    </div>
-                    <p>This method will return the http method by using user is sending request.</p>
-                    <p>Let's try it,</p>
-                    <pre>
-// get the method name
-var httpMethod = app.client.method();
-// write to console
-console.log(httpMethod);
-                    </pre>
-                    <p class="strong">It should write either GET or POST.</p>
-                </div>
-            </div>
-
-            <div id="client_headers">
-                <div class="row">
-                    <h2>headers</h2>
-                    <div class="code">
-                        app.client.headers -
-                    </div>
-                    <p>This method will return the header information of user request.</p>
-                    <p>Let's try it,</p>
-                    <pre>
-// get the method name
-var headers = app.client.headers();
-// it will write all the headers
-console.log(headers);
-
-// get specific header for eg, connection
-var connectionHeader = app.client.headers("connection");
-// it will write keep-alive
-console.log(connectionHeader);
-                    </pre>
-                    <p class="strong">If no arguments are passed it will return all headers in JSON object format.</p>
-                </div>
-            </div>
-
-            <div id="client_getCookie">
-                <div class="row">
-                    <h2>Get Cookie</h2>
-                    <div class="code">
-                        app.client.getCookie -
-                    </div>
-                    <p>This method will return the cookie information send by the user.</p>
-                    <p>Let's try it,</p>
-                    <pre>
-// get the method name
-var cookieData = app.client.getCookie();
-// it will write all the cookie data
-console.log(cookieData);
-
-// get specific header for eg, connection
-var cookieId = app.client.getCookie("__KSESID");
-// it will write cookie id 
-console.log(cookieId);
-                    </pre>
-                    <p class="strong">If no arguments are passed it will return all cookie datas in JSON object format.
-                    </p>
-                </div>
-            </div>
-
-            <div id="client_addCookie">
-                <div class="row">
-                    <h2>Add Cookie</h2>
-                    <div class="code">
-                        app.client.addCookie -
-                    </div>
-                    <p>This method will add cookie.</p>
-                    <p>Let's try it,</p>
-                    <pre>
-// create a data that will expire on 2050/01/02 03:04:05
-var cookieData = {
-    key: "name",
-    value: "majidai",
-    httpOnly: true,
-    expireDate: new Date(2050, 1, 2, 3, 4, 5),
-    path: "/",
-    domain: "localhost",
-    secure: true
-};
-// add the data to cookie
-app.client.addCookie(cookieData);
-                    </pre>
-                    <p class="strong">key and value are mandotary while others are optional.</p>
-                </div>
-            </div>
-
-            <div id="client_deleteCookie">
-                <div class="row">
-                    <h2>Delete Cookie</h2>
-                    <div class="code">
-                        app.client.deleteCookie -
-                    </div>
-                    <p>This method will delete cooke.</p>
-                    <p>Let's try it,</p>
-                    <pre>
-// delete the cookie with key "name"
-app.client.deleteCookie("name");
-                    </pre>
-                </div>
-            </div>
-
 
 
             <div id="response_static">
                 <div class="row">
-                    <h2>Respond static files</h2>
+                    <h1>static</h1>
                     <div class="code">
-                        app.respond.static - &lt;file path&gt;
+                        response.mj.static - &lt;file path&gt;,&lt;status code&gt;?
                     </div>
                     This method will respond content from static files.
                     <table>
-                        <tr>
-                            <th>parameter</th>
-                            <th>type</th>
-                            <th>description</th>
-                        </tr>
-                        <tr>
-                            <td>file path</td>
-                            <td>string</td>
-                            <td>either absolute or relative path</td>
-                        </tr>
+                        <tbody>
+                            <tr>
+                                <th>parameter</th>
+                                <th>type</th>
+                                <th>description</th>
+                            </tr>
+                            <tr>
+                                <td>file path</td>
+                                <td>string</td>
+                                <td>either absolute or relative path</td>
+                            </tr>
+                            <tr>
+                                <td>status code</td>
+                                <td>number(optional)</td>
+                                <td>default 200</td>
+                            </tr>
+                        </tbody>
                     </table>
-                    <p>
-                        Let's try it,
-                        <pre>
-return app.respond.static("./somewhere/home.html");
-</pre>
-                    </p>
-                    <p class="strong"></p>
-                </div>
-            </div>
 
-            <div id="response_error">
-                <div class="row">
-                    <h2>Respond Error</h2>
-                    <div class="code">
-                        app.respond.error - &lt;error code&gt;
-                    </div>
-                    This method will respond error.
-                    <table>
-                        <tr>
-                            <th>parameter</th>
-                            <th>type</th>
-                            <th>description</th>
-                        </tr>
-                        <tr>
-                            <td>error code</td>
-                            <td>number</td>
-                            <td>error code like, 401,500,..</td>
-                        </tr>
-                    </table>
-                    <p>
-                        Let's try it,
-                        <pre>
-// lets respond with internal server error
-return app.respond.error(500);
-</pre>
-                    </p>
-                    <p class="strong">We can customize the error response by using "onError" method.</p>
                     <pre>
-server.onError(function (errObj) {
-    errObj.contentType = "text/html";
-    errObj.errMsg = `
-&lt;html&gt;
-&lt;head&gt;
-    &lt;title&gt;custom error&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;h1&gt;&lt;span style='color:#ff0000'&gt;Woops!&lt;/span&gt; Something Went Wrong&lt;/h1&gt;
-    &lt;p&gt;${errObj.errMsg}&lt;/p&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-`;
+<code class="javascript">
+const server = new majidai();
 
-    return errObj;
+server.get("/", (request, response) => {
+    return response.mj.static("/somewhere/static/home.html");
 });
-                    </pre>
-                    <p>
-                        In this case all the error response will respond as text/html with the content set above.<br>
-                        See <a href="https://github.com/dakc/majidai/blob/master/example/custom-error.js"
-                            target="_blank">here</a> for usage.
-                    </p>
-                    <p>
-                        The argument "errObj" is a json object having response code, response message and content-type
-                        as data.
-                    </p>
-                    <pre>
-errObj = {
-    contentType:　"content-type(text/html,text/plain)",
-    errCode: "status code(404,500.,,)",
-    errMsg: "response body"
-}
-    </pre>
-                    <p>We will overwrite the value and return the object.</p>
-                </div>
-            </div>
 
-            <div id="response_plainText">
-                <div class="row">
-                    <h2>Respond plain text</h2>
-                    <div class="code">
-                        app.respond.plainText - &lt;content&gt;
-                    </div>
-                    This method will respond as plain text.
-                    <table>
-                        <tr>
-                            <th>parameter</th>
-                            <th>type</th>
-                            <th>description</th>
-                        </tr>
-                        <tr>
-                            <td>content</td>
-                            <td>string</td>
-                            <td>content to respond</td>
-                        </tr>
-                    </table>
-                    <p>
-                        Let's try it,
-                        <pre>
-return app.respond.plainText("Hello majidai.");
-// or just return string
-return "Hello majidai";
+server.start();
+</code>
 </pre>
+                    <p></p>
+                    <p class="strong">Beside this, refer to <a href="#static_page">serving static</a> for files at specific folder.
                     </p>
-                    <p class="strong">Returning string will as above will responds as plain text.</p>
                 </div>
             </div>
 
-            <div id="response_json">
-                <div class="row">
-                    <h2>Respond as JSON</h2>
-                    <div class="code">
-                        app.respond.json - &lt;content&gt;
-                    </div>
-                    This method will respond the content as json.
-                    <table>
-                        <tr>
-                            <th>parameter</th>
-                            <th>type</th>
-                            <th>description</th>
-                        </tr>
-                        <tr>
-                            <td>content</td>
-                            <td>object</td>
-                            <td>json object to respond</td>
-                        </tr>
-                    </table>
-                    <p>
-                        Let's try it,
-                        <pre>
-    var jsonObject = {id:3,name:"majidai"};
-    return app.respond.json(jsonObject);
-    // or
-    // just return json object
-    return jsonObject;
-    </pre>
-                    </p>
-                    <p class="strong">Returning Json Object will respond the content as JSON.</p>
-                </div>
-            </div>
 
             <div id="response_redirect">
                 <div class="row">
-                    <h2>Redirect</h2>
+                    <h1>redirect</h1>
                     <div class="code">
-                        app.respond.redirect - &lt;url&gt;
+                        response.mj.redirect - &lt;url&gt;
                     </div>
                     This method will redirect to given url
                     <table>
-                        <tr>
-                            <th>parameter</th>
-                            <th>type</th>
-                            <th>description</th>
-                        </tr>
-                        <tr>
-                            <td>url</td>
-                            <td>string</td>
-                            <td>url to redirect</td>
-                        </tr>
+                        <tbody>
+                            <tr>
+                                <th>parameter</th>
+                                <th>type</th>
+                                <th>description</th>
+                            </tr>
+                            <tr>
+                                <td>url</td>
+                                <td>string</td>
+                                <td>url to redirect</td>
+                            </tr>
+                        </tbody>
                     </table>
-                    <p>
-                        Let's try it,
-                        <pre>
-// lets redirect to somewhere 
-return app.respond.redirect("./somewhere");
+
+                    <pre>
+<code class="javascript">
+const server = new majidai();
+
+server.get("/", (request, response) => {
+    // redirect to somewhere 
+    return response.mj.redirect("/somewhere");
+});
+
+server.start();
+</code>
 </pre>
-                    </p>
-                    <p class="strong"></p>
                 </div>
             </div>
 
-            <div id="native_request">
+
+            <div id="response_error">
                 <div class="row">
-                    <h2>Node's http module's request method</h2>
+                    <h1>error</h1>
                     <div class="code">
-                        app.native.requst -
+                        response.mj.error - &lt;error code&gt;,&lt;error msg&gt;?
                     </div>
-                    This method will return the node's http modules's request object.
-                    It will help you to access to everything related to request.
-                    <p>
-                        Let's try it,
-                        <pre>
-// get native request object
-var request = app.native.request();
-// access to 
-request.SOME_METHODS....
+                    This method will respond error.
+                    <table>
+                        <tbody>
+                            <tr>
+                                <th>parameter</th>
+                                <th>type</th>
+                                <th>description</th>
+                            </tr>
+                            <tr>
+                                <td>error code</td>
+                                <td>number</td>
+                                <td>error code like, 401,500,..</td>
+                            </tr>
+                            <tr>
+                                <td>error msg</td>
+                                <td>string(optional)</td>
+                                <td>error content(if not set, then default http error message will be send)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+<pre>
+<code class="javascript">
+const server = new majidai();
+
+server.get("/", (request, response) => {
+    // return internal server error
+    return response.mj.error(500);
+});
+
+server.start();
+</code>
 </pre>
-                    </p>
-                    <p class="strong"></p>
                 </div>
             </div>
 
-            <div id="native_response">
+
+
+
+
+
+
+
+
+
+
+
+
+            <div id="static_page">
                 <div class="row">
-                    <h2>Node's http module's response method</h2>
-                    <div class="code">
-                        app.native.response -
-                    </div>
-                    This method will return the node's http modules's response object.
-                    It will help you to access to everything related to response.
+                    <h1>Serve Static</h1>
                     <p>
-                        Let's try it,
-                        <pre>
-// get native response object
-var response = app.native.response();
-// access to 
-response.SOME_METHODS....
-</pre>
+                        By default, static serving function is set to off.
+                        By setting the "documentRoot" of "http" property to a existing directory, 
+                        majidai will serve all the static files below that path.
                     </p>
-                    <p class="strong"></p>
-                </div>
-            </div>
-
-            <div id="authentication_triggerAuthCheck">
-                <div class="row">
-                    <h2>Authentication - trigger login check</h2>
-                    <div class="code">
-                        app.triggerAuthCheck -
-                    </div>
-                    This method works with mustBeAuthorized method.
-                    If user access to a page having mustBeAuthorized before accessing to a page having triggerAuthCheck,
-                    then the user will not be able to see the contents below mustBeAuthorized.
-                    After user is authenticated call this function otherwise , mustBeAuthorized wont work.
-                    This function will regenrate session id automatically.
-                    <p>
-                        Let's try it,
-                        <pre>
-// login page
-server.post("/login", function (app) {
-    // get post data
-    var postParams = app.data.postParams();
-    
-    // get login id (form input name=login_id)
-    var userId = postParams.login_id;
-    
-    // get login password (form input name=login_pass)
-    var userPass = postParams.login_pass"";
-    
-    // check user id & pass (user authentication)
-    var isLogged = 1;
-    
-    if (isLogged){
-        // trigger login check
-        app.triggerAuthCheck();
-
-        // remember user id 
-        app.session.put("user_id", userId);
-
-        // redirect to /home
-        return app.respond.redirect("/home");
+<pre>
+<code class="javascript">
+const config = {
+    http: {
+        documentRoot: './public'
     }
-    
-    // unauthorized login
-    return app.respond.redirect("/");
-});
+};
+const server = new majidai(config);
+server.start();
+</code>
 </pre>
-                    </p>
-                    <p class="strong"></p>
-                </div>
-            </div>
 
-            <div id="authentication_mustBeAuthorized">
-                <div class="row">
-                    <h2>Authentication - validate user</h2>
-                    <div class="code">
-                        app.mustBeAuthorized - &lt;param&gt;?
-                    </div>
-                    This method works with triggerAuthCheck method.
-                    After user is authenticated call triggerAuthCheck method. And for the pages where
-                    you want to give access to only logged user, call mustBeAuthorized method at the very first.
-                    <table>
-                        <tr>
-                            <th>parameter</th>
-                            <th>type</th>
-                            <th>description</th>
-                        </tr>
-                        <tr>
-                            <td>url</td>
-                            <td>object</td>
-                            <td>object with key url and value to redirect if the user is not logged</td>
-                        </tr>
-                        <tr>
-                            <td>msg</td>
-                            <td>string</td>
-                            <td>response message if the user is not logged</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td>without any parameter it will response with unauthorized access.</td>
-                        </tr>
-                    </table>
+                   
+
                     <p>
-                        Let's try it,
-                        <pre>
-// authorized user's page
-server.get("/membership", app => {
-    // redirect if not logged user
-    // triggerAuthCheck should be called before otherwise it will always redirect to given url "./"
-    if (!app.mustBeAuthorized({url:"./"})) return;
-    
-    // or send some messages
-    if (!app.mustBeAuthorized("some messages as string")) return;
-
-    // or without any parameters (it will return 401 with unauthorized access message)
-    if (!app.mustBeAuthorized()) return;
-
-    // do some stuffs
-
-    // return data for logged users only
-    return { name: "adfa", dasdf: 323 };
-});
-</pre>
+                        <span class="strong">Put index.html with javascript files and css files on documentRoot directory</span> and access to http://localhost.
+                        You will be able to see the contents of index.html.
                     </p>
-                    <p class="strong"></p>
                 </div>
             </div>
 
 
-
-            <div id="samples_samples">
+            <div id="custom_err">
                 <div class="row">
-                    <h2>samples</h2>
+                    <h1>Customize Error Page</h1>
+
+                    <p class="strong">We can customize error page by calling "customizeErrorPage" method.</p>
+                    <div class="code">
+                        server.customizeErrorPage - &lt;callback&gt;
+                    </div>
+                    This method will redirect to given url
                     <table>
-                        <tr>
-                            <th>file</th>
-                            <th>content</th>
-                        </tr>
-                        <tr>
-                            <td><a href="https://github.com/dakc/majidai/blob/master/example/get.js"
-                                    target="_blank">get.js</a></td>
-                            <td>handle GET routing</td>
-                        </tr>
-                        <tr>
-                            <td><a href="https://github.com/dakc/majidai/blob/master/example/post-json.js"
-                                    target="_blank">post-json.js</a></td>
-                            <td>handle POST routing with JSON contents</td>
-                        </tr>
-                        <tr>
-                            <td><a href="https://github.com/dakc/majidai/blob/master/example/post-www-url-encoded.js"
-                                    target="_blank">post-www-url-encoded.js</a></td>
-                            <td>handle POST routing with www-url-encoded data</td>
-                        </tr>
-                        <tr>
-                            <td><a href="https://github.com/dakc/majidai/blob/master/example/post-multipart-form.js"
-                                    target="_blank">post-multipart-form.js</a></td>
-                            <td>handle POST routing with multipart-form data</td>
-                        </tr>
-                        <tr>
-                            <td><a href="https://github.com/dakc/majidai/blob/master/example/static-response.js"
-                                    target="_blank">static-response.js</a></td>
-                            <td>handle static files</td>
-                        </tr>
-                        <tr>
-                            <td><a href="https://github.com/dakc/majidai/blob/master/example/authentication.js"
-                                    target="_blank">authentication.js</a></td>
-                            <td>triggerAuthCheck usage</td>
-                        </tr>
-                        <tr>
-                            <td><a href="https://github.com/dakc/majidai/blob/master/example/custom-config.js"
-                                    target="_blank">custom-config.js</a></td>
-                            <td>customize server configuration</td>
-                        </tr>
-                        <tr>
-                            <td><a href="https://github.com/dakc/majidai/blob/master/example/custom-error.js"
-                                    target="_blank">custom-error.js</a></td>
-                            <td>customize error response</td>
-                        </tr>
+                        <tbody>
+                            <tr>
+                                <th>parameter</th>
+                                <th>type</th>
+                                <th>description</th>
+                            </tr>
+                            <tr>
+                                <td>callback</td>
+                                <td>function</td>
+                                <td>it receives error message as argument.Return value must be a object containing "content" and "contentType" as a property.</td>
+                            </tr>
+                        </tbody>
                     </table>
+                    
+                    <pre>
+<code class="javascript">
+const server = new majidai();    
+
+server.get("/", (request, response) => {
+    // return internal server error
+    return response.mj.error(500, "contact to server admin");
+});
+
+server.start();
+
+// customize error page
+server.customizeErrorPage(function(errContent) {
+    // format to html
+    let htmlContent = `
+        &lt;html&gt;
+        &lt;head&gt;
+        &lt;title&gt;custom error&lt;/title&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+        &lt;h1&gt;&lt;span style='color:#ff0000'&gt;Woops!&lt;/span&gt; Something Went Wrong&lt;/h1&gt;
+        &lt;p&gt;${errContent}&lt;/p&gt;
+        &lt;/body&gt;
+        &lt;/html&gt;
+    `;
+    
+    // must return a object with "contentType" and "content"
+    return {
+        contentType: "text/html",
+        content: htmlContent
+    };
+});
+</code>
+        </pre>
                 </div>
             </div>
+
+
+            <div id="set_mimetype">
+                <div class="row">
+                    <h1>setMimeType</h1>
+
+                    <p class="strong">If mimetype is not supported by default, 
+                        We can Set the mimetype for file extension by using "setMimeType" method.</p>
+                    <div class="code">
+                        server.setMimeType - &lt;ext&gt;,&lt;mimetype&gt;
+                    </div>
+                    This method will redirect to given url
+                    <table>
+                        <tbody>
+                            <tr>
+                                <th>parameter</th>
+                                <th>type</th>
+                                <th>description</th>
+                            </tr>
+                            <tr>
+                                <td>ext</td>
+                                <td>string</td>
+                                <td>file extension must start with dot(eg, '.gif')</td>
+                            </tr>
+                            <tr>
+                                <td>mimetype</td>
+                                <td>string</td>
+                                <td>mimetype for the extension(eg, 'image/gif')</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <pre>
+<code class="javascript">
+const server = new majidai();
+
+server.setMimeType(".gif", "image/gif");
+
+server.get("/", (request, response) => {
+    // show gif image on browser
+    return response.mj.static("/somewhere/something.gif");
+});
+
+server.start();
+</code>
+        </pre>
+                </div>
+            </div>
+
+
+<div id="configuration">
+    <div class="row">
+        <h1>configuration</h1>
+<p>
+    majidia is a configuration centralized framework. We can create a config based on environment.
+</p>
+        1. create config.dev.js with the following content.(This is the default config for majidai). 
+        We can change any content of the configuration as per our need.
+        <pre>
+<code class="javascript">
+module.exports = {
+    // ===========================================
+    // common configuration
+    contentType: "text/plain",
+    charset: "utf-8",
+    maxBodySize: 100 * 1024, // byte
+    directoryIndex: "index.html",
+    allowedMethod: ["GET", "POST", "HEAD", "PUT", "DELETE", "CONNECT", "OPTIONS", "TRACE", "PATCH"],
+    responseHeader: {
+        "x-frame-options": "SAMEORIGIN",
+        "x-xss-protection": "0",
+        "server": "majidai@2.0",
+        "Access-Control-Allow-Origin": "*",
+        "Accept": "*/*",
+    },
+    
+    // ===========================================
+    // http configuration
+    http: {
+        port: 80,
+        host: "0.0.0.0",
+        documentRoot: "",
+        listen: true,
+    },
+
+    // ===========================================
+    // https configuration
+    // NOT IMPLEMENTED IN VER2.0.rc
+    https: {
+        port: 443,
+        host: "0.0.0.0",
+        documentRoot: "",
+        listen: false,
+        listenHttp2: false,
+        listenHttp3: false,
+        key: "",
+        cert: "",
+        ca: "",
+    },
+};
+</code>
+        </pre>
+
+        <p class="note-box">Ver2.0.rc does not contain https by default.</p>
+
+        <h1>sample</h1>
+        <p>create server.js</p>
+<pre>
+<code class="javascript">
+// import majidai 
+const majidai = require("majidai");
+
+// import configuration for dev environment
+const config = require("config.dev.js"):
+
+// create majidai server instance
+const server = new majidai(config):
+
+// show the client information on console
+server.on("stdout", data => console.log(data));
+
+// on error show on console
+server.on("stderr", data => console.error(data));
+
+// create routing that listens for GET & POST
+server.listen({methods: ["GET", "POST"], path: "/order/{item}/{quantity}"}, req => {
+    // get all GET data
+    var getData = req.mj.getParams();
+
+    // get all POST data
+    var postData = req.mj.postParams();
+
+    // return all data as application/json
+    return {
+        get: getData,
+        post: postData
+    }
+});
+
+// start server
+server.start();
+</code>
+</pre>
+        </div>
+        </div>
+
+
+<div id="docker">
+    <div class="row">
+        <h1>docker</h1>
+<pre>
+<code class="shell">
+docker run -it --rm -p 80:80 dakc/majidai npx /data/server.js
+</code>
+</pre>
+        </div>
+        </div>
+
 
 
         </div>
     </div>
 
-    <script src="assets/js/majidai.js"></script>
-    <img src="https://prakashkc99.com/oss/majidai/dakc.github.io">
+    <script src="assets/js/script.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
 </body>
 
 </html>

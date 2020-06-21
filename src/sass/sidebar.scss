@@ -1,11 +1,13 @@
+$sel-color: #ffca28;
+
 .sidebar {
-    background: #e9ebee;
+    background: #5e9305;
     position: fixed;
     left: 0;
     top: 0;
-    width:180px;
+    width: 180px;
     height: 100vh;
-    border-left: 8px solid #1c2f2f;
+    border-left: 8px solid $sel-color;
     overflow-y: auto;
 
     .personal {
@@ -13,28 +15,30 @@
         flex-direction: column;
         align-items: center;
         margin: 20px auto;
-   
 
-    img {
-        width: 40px;;
-        height: 40px;
-        border-radius: 50%;
-        border: 1px solid #777;
+
+        img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid #ffffff;
+        }
     }
-}
+
     .menu::before {
         content: ' ';
         display: block;
         border-bottom: 1px solid lightgray;
     }
 
-    .menu{
-        header{
+    .menu {
+        header {
             font-size: 1.3rem;
             // font-family: 'Indie Flower', cursive;
             padding-left: 10px;
         }
     }
+
     .menu nav {
         ul {
             margin-bottom: 20px;
@@ -44,12 +48,17 @@
                 border: 1px solid transparent;
                 font-size: 1.0rem;
                 word-wrap: break-word;
+
+                a{
+                    color: #1c2f2f;
+                }
             }
 
             li:hover {
-                background: darkslategray;
+                background: $sel-color;
                 cursor: pointer;
-                a{
+
+                a {
                     color: #ffffff;
                 }
             }
@@ -62,22 +71,23 @@
                 margin: 0 1em;
             }
 
-            li.active{
-                background: #1c2f2f;
-                a{
+            li.active {
+                background: $sel-color;
+
+                a {
                     color: #ffffff;
                 }
             }
         }
     }
 
-    .links{
-        ul{
+    .links {
+        ul {
             margin-top: 20px;
         }
-        li{
-            margin:5px;
+
+        li {
+            margin: 5px;
         }
     }
 }
-

@@ -1,8 +1,0 @@
-@media only screen and (max-width: 600px) {
-    .sidebar {
-      display: none;
-    }
-    .contentbox{
-        margin-left: 0;
-    }
-  }
