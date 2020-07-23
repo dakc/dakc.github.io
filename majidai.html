@@ -74,6 +74,8 @@
                             <li><i></i><a href="?#custom_err">Error Page</a></li>
                             <li><i></i><a href="?#set_mimetype">setMimeType</a></li>
                             <li><i></i><a href="?#configuration">configuration</a></li>
+                            <li><i></i><a href="?#https">Https Server</a></li>
+                            <li><i></i><a href="?#sample">Samples</a></li>
                             <li><i></i><a href="?#docker">docker</a></li>
                         </ul>
                     </nav>
@@ -85,9 +87,12 @@
             <hr>
             <div class="links">
                 <ul>
-                    <li><a href="https://travis-ci.com/dakc/majidai"><img src="https://travis-ci.com/dakc/majidai.svg?branch=develop"></a></li>
-                    <li><a href="https://www.npmjs.com/package/majidai"><img src="https://img.shields.io/npm/v/majidai.svg"></a></li>
-                    <li><a href="https://github.com/dakc/majidai/blob/master/LICENSE"><img src="https://img.shields.io/github/license/dakc/merodb.svg?style=popout"></a></li>
+                    <li><a href="https://travis-ci.com/dakc/majidai"><img
+                                src="https://travis-ci.com/dakc/majidai.svg?branch=develop"></a></li>
+                    <li><a href="https://www.npmjs.com/package/majidai"><img
+                                src="https://img.shields.io/npm/v/majidai.svg"></a></li>
+                    <li><a href="https://github.com/dakc/majidai/blob/master/LICENSE"><img
+                                src="https://img.shields.io/github/license/dakc/merodb.svg?style=popout"></a></li>
                 </ul>
             </div>
 
@@ -143,10 +148,10 @@ server.start();
                     <p class="toppage-img">
                         <img src="/assets/img/toppage.png" alt="majidai top page">
                     </p>
-                    
-                        <p class="strong">※ By default, majidai listens at 80 port which can be changed by passing
-                            http.port parameter.</p>
-<pre>
+
+                    <p class="strong">※ By default, majidai listens at 80 port which can be changed by passing
+                        http.port parameter.</p>
+                    <pre>
 <code class="javascript">
 const config = {
     http: {
@@ -157,9 +162,9 @@ const server = new majidai(config);
 </code>
 </pre>
 
-<h1>OR</h1> in one line
+                    <h1>OR</h1> in one line
 
-<pre>
+                    <pre>
 <code class="javascript">
 const server = new majidai({http: {port: 8000}});
 </code>
@@ -179,7 +184,8 @@ const server = new majidai({http: {port: 8000}});
                     <p>
                         majidai emits 2 types of events which can be used for logging purpose.
                         <ol>
-                            <li>stdout: it contains client information(access time,ip,http method) in json object format</li>
+                            <li>stdout: it contains client information(access time,ip,http method) in json object format
+                            </li>
                             <li>stderr: it contains error message</li>
                         </ol>
                         <pre>
@@ -306,7 +312,9 @@ function CALLBACK(request, response){
                             <li><a href="">postParams</a>: returns POST request DATA as json object.</li>
                         </ol>
                         <p class="strong">
-                            ※ request has all <a href="https://nodejs.org/api/http.html#http_class_http_incomingmessage">&lt;http.IncomingMessage&gt;</a> properties and methods beside "mj" added by majidai.
+                            ※ request has all <a
+                                href="https://nodejs.org/api/http.html#http_class_http_incomingmessage">&lt;http.IncomingMessage&gt;</a>
+                            properties and methods beside "mj" added by majidai.
                         </p>
                     </div>
                     <div class="note-box">
@@ -323,7 +331,9 @@ function CALLBACK(request, response){
                             <li><a href="">redirect</a>: redirect to different url</li>
                         </ol>
                         <p class="strong">
-                            ※ response has all <a href="https://nodejs.org/api/http.html#http_class_http_serverresponse">&lt;http.ServerResponse&gt;</a> properties and methods beside "mj" added by majidai.
+                            ※ response has all <a
+                                href="https://nodejs.org/api/http.html#http_class_http_serverresponse">&lt;http.ServerResponse&gt;</a>
+                            properties and methods beside "mj" added by majidai.
                         </p>
                     </div>
                 </div>
@@ -450,7 +460,8 @@ server.start();
                                 <tr>
                                     <td>routeObj</td>
                                     <td>object</td>
-                                    <td>it is json object {method: [], path: ''} where "method" is a array of http methods and "path" is a path to listen request
+                                    <td>it is json object {method: [], path: ''} where "method" is a array of http
+                                        methods and "path" is a path to listen request
                                     </td>
                                 </tr>
                                 <tr>
@@ -510,7 +521,7 @@ server.start();
                     <p class="strong">If no parameter is passed, it will return all the GET data in JSON format.
                     </p>
 
-<pre>
+                    <pre>
 <code class="javascript">
 const server = new majidai();
 
@@ -540,7 +551,7 @@ server.start();
 </pre>
                     <p>
                         it works on all types of routing including <span class="strong">parameterized routing</span>.
-<pre>
+                        <pre>
 <code>
 server.post("/home/{user}", (request,response) => {  
     // when POST request is received at http://〇〇/home/dakc?page=profile   
@@ -568,12 +579,11 @@ server.post("/home/{user}", (request,response) => {
                         response.mj.postParams - &lt;key&gt;?
                     </div>
                     <p>
-                        This method will get the data sent as POST parameters.
-                    Data sent through any methods(<span class="strong">x-www-form-urlencoded, application/json,
-                        form-data</span>)
-                    will be returned as json object.
+                        This method will return the data sent as POST parameter.
+                        Data sent through <span class="strong">x-www-form-urlencoded, application/json</span>
+                        will be returned as json object.
                     </p>
-                  
+
                     <table>
                         <tbody>
                             <tr>
@@ -591,7 +601,7 @@ server.post("/home/{user}", (request,response) => {
                     <p class="strong">If no argument is passed, it will return all the data in JSON format.
                     </p>
 
-<pre>
+                    <pre>
 <code>
 const server = new majidai();
 
@@ -612,8 +622,9 @@ server.post("/home", (request,response) => {
 server.start();
 </code>
 </pre>
-<p class="note-box">※ multipart/form-data is not supported by default, but we can use other libraries.</p>
-                    
+                    <p class="note-box">※ multipart/form-data is not supported by default, but we can use other
+                        libraries.</p>
+
 
                 </div>
             </div>
@@ -704,7 +715,7 @@ server.start();
                             </tr>
                         </tbody>
                     </table>
-<pre>
+                    <pre>
 <code class="javascript">
 const server = new majidai();
 
@@ -715,10 +726,11 @@ server.get("/", (request, response) => {
 server.start();
 </code>
 </pre>
-                        
-                                            <div class="note-box">
-                                                <p class="strong">Returning a json object from callback will also respond as application/json.</p>
-<pre>
+
+                    <div class="note-box">
+                        <p class="strong">Returning a json object from callback will also respond as application/json.
+                        </p>
+                        <pre>
 <code class="javascript">
 const server = new majidai();
 
@@ -729,7 +741,7 @@ server.get("/", (request, response) => {
 server.start();
 </code>
 </pre>
-                                            </div>
+                    </div>
                 </div>
             </div>
 
@@ -773,7 +785,8 @@ server.start();
 </code>
 </pre>
                     <p></p>
-                    <p class="strong">Beside this, refer to <a href="#static_page">serving static</a> for files at specific folder.
+                    <p class="strong">Beside this, refer to <a href="#static_page">serving static</a> for files at
+                        specific folder.
                     </p>
                 </div>
             </div>
@@ -844,7 +857,7 @@ server.start();
                         </tbody>
                     </table>
 
-<pre>
+                    <pre>
 <code class="javascript">
 const server = new majidai();
 
@@ -876,14 +889,16 @@ server.start();
                     <h1>Serve Static</h1>
                     <p>
                         By default, static serving function is set to off.
-                        By setting the "documentRoot" of "http" property to a existing directory, 
+                        By setting the "documentRoot" of "http" property to a existing directory,
                         majidai will serve all the static files below that path.
                     </p>
-<pre>
+                    <pre>
 <code class="javascript">
 const config = {
+    directoryIndex: "index.html",   // default page to display when directory is accessed
+    directoryTraversal: true,       // it will list all the files if no directoryIndex was found (Default: false)
     http: {
-        documentRoot: './public'
+        documentRoot: '/var/www/html' // files below this directory will be accessible through web
     }
 };
 const server = new majidai(config);
@@ -891,10 +906,11 @@ server.start();
 </code>
 </pre>
 
-                   
+
 
                     <p>
-                        <span class="strong">Put index.html with javascript files and css files on documentRoot directory</span> and access to http://localhost.
+                        <span class="strong">Put index.html with javascript files and css files on documentRoot
+                            directory</span> and access to http://localhost.
                         You will be able to see the contents of index.html.
                     </p>
                 </div>
@@ -920,11 +936,12 @@ server.start();
                             <tr>
                                 <td>callback</td>
                                 <td>function</td>
-                                <td>it receives error message as argument.Return value must be a object containing "content" and "contentType" as a property.</td>
+                                <td>it receives error message as argument.Return value must be a object containing
+                                    "content" and "contentType" as a property.</td>
                             </tr>
                         </tbody>
                     </table>
-                    
+
                     <pre>
 <code class="javascript">
 const server = new majidai();    
@@ -967,7 +984,7 @@ server.customizeErrorPage(function(errContent) {
                 <div class="row">
                     <h1>setMimeType</h1>
 
-                    <p class="strong">If mimetype is not supported by default, 
+                    <p class="strong">If mimetype is not supported by default,
                         We can Set the mimetype for file extension by using "setMimeType" method.</p>
                     <div class="code">
                         server.setMimeType - &lt;ext&gt;,&lt;mimetype&gt;
@@ -992,7 +1009,7 @@ server.customizeErrorPage(function(errContent) {
                             </tr>
                         </tbody>
                     </table>
-                    
+
                     <pre>
 <code class="javascript">
 const server = new majidai();
@@ -1011,15 +1028,23 @@ server.start();
             </div>
 
 
-<div id="configuration">
-    <div class="row">
-        <h1>configuration</h1>
-<p>
-    majidia is a configuration centralized framework. We can create a config based on environment.
-</p>
-        1. create config.dev.js with the following content.(This is the default config for majidai). 
-        We can change any content of the configuration as per our need.
-        <pre>
+            <div id="configuration">
+                <div class="row">
+                    <h1>configuration</h1>
+                    <p>
+                        majidia is a configuration centralized framework. We can create a config based on environment.
+                    </p>
+                    <p>
+                        Below is the default configuration.
+                        We can change the content and create different types of configuration files as per our need.<br>
+                        For eg,
+                        <ol>
+                            <li>config.dev.js</li>
+                            <li>config.prod.js</li>
+                        </ol>
+                    </p>
+
+                    <pre>
 <code class="javascript">
 module.exports = {
     // ===========================================
@@ -1028,11 +1053,12 @@ module.exports = {
     charset: "utf-8",
     maxBodySize: 100 * 1024, // byte
     directoryIndex: "index.html",
+    directoryTraversal: false,
     allowedMethod: ["GET", "POST", "HEAD", "PUT", "DELETE", "CONNECT", "OPTIONS", "TRACE", "PATCH"],
     responseHeader: {
         "x-frame-options": "SAMEORIGIN",
         "x-xss-protection": "0",
-        "server": "majidai@2.0",
+        "server": "majidai/2.1",
         "Access-Control-Allow-Origin": "*",
         "Accept": "*/*",
     },
@@ -1048,26 +1074,61 @@ module.exports = {
 
     // ===========================================
     // https configuration
-    // NOT IMPLEMENTED IN VER2.0.rc
     https: {
         port: 443,
         host: "0.0.0.0",
         documentRoot: "",
         listen: false,
-        listenHttp2: false,
-        listenHttp3: false,
-        key: "",
-        cert: "",
-        ca: "",
+        http2: false,
+        pfx: "",
+        passphrase: "",
     },
 };
 </code>
         </pre>
 
-        <p class="note-box">Ver2.0.rc does not contain https by default.</p>
 
-        <h1>sample</h1>
-        <p>create server.js</p>
+                </div>
+            </div>
+
+
+            <div id="https">
+                <div class="row">
+                    <h1>Create https server</h1>
+                    <p>
+                        By default, "listen" property for https is set to "false". By changing it to "true" and
+                        passing the ssl certificate in "PKCS#12" format, we can easily create https server.<br>
+                        Also http2 protocol is set to off by default. We can activate it by just passing http2 attribute
+                        set to true.
+                    </p>
+                    <pre>
+        <code class="javascript">
+const majidai = require("majidai");
+
+var config = {
+    https: {
+        listen: true,
+        documentRoot: "public",
+        pfx: "ssl/certificate.pfx",
+        passphrase: "p@ssword",
+        http2:true
+    }
+};
+
+let server = new majidai(config);
+
+server.on('stdout', data => console.log(data));
+server.on('stderr', data => console.error(data));
+
+server.start();
+        </code>
+        </pre>
+                </div>
+            </div>
+
+            <div id="sample">
+                <div class="row">
+                    <h1>sample</h1>
 <pre>
 <code class="javascript">
 // import majidai 
@@ -1104,21 +1165,31 @@ server.listen({methods: ["GET", "POST"], path: "/order/{item}/{quantity}"}, req 
 server.start();
 </code>
 </pre>
-        </div>
-        </div>
+                </div>
+            </div>
 
-
-<div id="docker">
-    <div class="row">
-        <h1>docker</h1>
-<pre>
+            <div id="docker">
+                <div class="row">
+                    <h1>docker</h1>
+                    <pre>
 <code class="shell">
 docker run -it --rm -p 80:80 dakc/majidai npx /data/server.js
 </code>
 </pre>
-        </div>
-        </div>
+                </div>
+            </div>
 
+
+            <!-- <div id="docker">
+                <div class="row">
+                    <h1>docker</h1>
+                    <pre>
+            <code class="shell">
+            docker run -it --rm -p 80:80 dakc/majidai npx /data/server.js
+            </code>
+            </pre>
+                </div>
+            </div> -->
 
 
         </div>
