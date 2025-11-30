@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>九九フラッシュカード（1〜9）</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app">
+    <header class="app-header">
+      <h1>かけざんチャレンジ</h1>
+      <p class="subtitle">九九の練習（1〜9の掛け算）</p>
+    </header>
+
+    <section class="card-area">
+      <div class="mode-toggle" role="tablist" aria-label="モード切替">
+        <button id="modeNormalBtn" class="mode-btn active">通常モード</button>
+        <button id="modeChallengeBtn" class="mode-btn">挑戦モード</button>
+      </div>
+
+      <div class="card" id="card" style="display:none">
+        <div class="question" id="question">5 × 3</div>
+      </div>
+
+      <div class="card-placeholder" id="cardPlaceholder" style="display:none">
+        <p>「挑戦モード」で「挑戦開始」ボタンを押して、20問のチャレンジを開始してください！</p>
+      </div>
+
+      <div class="controls">
+        <label for="answer" class="visually-hidden">答え</label>
+        <input id="answer" type="number" inputmode="numeric" autocomplete="off" placeholder="答えを入力" aria-label="答え" />
+        <div class="buttons">
+            <button id="submitBtn" class="btn primary" aria-label="提出">
+            <!-- check icon -->
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>
+            提出
+          </button>
+          <button id="showBtn" class="btn" aria-label="答えを見る">
+            <!-- eye icon -->
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 6a9 9 0 0 1 9 6 9 9 0 0 1-18 0 9 9 0 0 1 9-6m0-2C7 4 2.7 7 1 12c1.7 5 6 8 11 8s9.3-3 11-8c-1.7-5-6-8-11-8z"/></svg>
+            答えを見る
+          </button>
+          <button id="nextBtn" class="btn ghost" aria-label="次へ">
+            <!-- arrow icon -->
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M10 17l5-5-5-5v10z"/></svg>
+            次へ
+          </button>
+          <button id="startAttemptBtn" class="btn primary" aria-label="挑戦開始">
+            <!-- play icon -->
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+            挑戦開始
+          </button>
+        </div>
+      </div>
+
+      <div class="feedback" id="feedback" aria-live="polite"></div>
+
+      <div class="attempt-info">
+        <div id="progress" class="progress">問題 0 / 20</div>
+        <div id="timer" class="timer">00:00</div>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><strong id="correct">0</strong> 正解</div>
+        <div class="stat"><strong id="incorrect">0</strong> 間違い</div>
+        <div class="stat"><strong id="streak">0</strong> 連続正解</div>
+      </div>
+
+      <details class="history" id="historyDetails">
+        <summary>最近の挑戦</summary>
+        <ul id="historyList"></ul>
+      </details>
+    </section>
+
+    <footer class="app-footer">
+      <small>Designed for kids — big buttons, simple rules.</small>
+    </footer>
+  </main>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
